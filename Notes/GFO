@@ -1,0 +1,60 @@
+1. GFO is a hybrid Maven, Sub-eclipse, and WorkBench tooled environment
+
+2. Demo does not show too much WB tooling(one .esbp was created) A service instance (of a new service type) was created using SMC in the demo.
+
+3. Demo shows heavy use on Maven eclipse tooling, archetypes are used to create projects.
+
+4. Maven add dependency can search based on dependency name via a search field
+
+5. By default, scope dependencies to "compile"(pulls them in).
+
+6. BA sometimes sets the scope to "provided". For example, service types are delivered is their own SDM model. To ensure models that contain instances
+do not pull in redundant definitions set "provided".
+
+7. With WB, you can access the .esbp, .esbsvc etc editors. So although there are no Sonic WB projects per se, file name extensions .esbsvc, .esbsvc etc should be checked in.
+
+8. You can run scenarios.
+
+9. You never do a new workbench sonic project so script-able builds aren't relevant here.
+
+10. With one exception to the above, Sonic Connect Workbench projects need to be needed to create the hidden i.e. .services files. These need to be manually copied to GFO projects. The GFO plugins will generate .csars and .properties from them.
+
+Sonic connect has a special "connect" vs "esb" packaging type.
+
+11. You need the domain manager running to build the service type, etc. In fact as a developer to work in Eclipse you need this.
+
+12. For headless CI builds you do not need the DM running. The contingency here is (for process builds) a deploy/generated-src
+ needs to be checked in. The esb plugins will try the DS first. This is also used for developer project sharing
+ (xar import onto a clean developer environment).
+
+13. STRESS :you need to check in deploy/generated-src 
+
+14. Process artifacts contains a reference to the service type artifacts i.e. does not macro include the files. 
+You see this all the way through to the SDM model(all constituent .xars are included in the SDM model). Unless "provided" is
+specified at the process artifact pom in the type dependency definition.
+
+15. SDM Model doesn't run clean first time by design 
+
+15.1 You need to fix up src/main/sonicesb/localtest.Topology.xml add the missing values complained about from target/sonicesb/sdm/generatedTopology.xml.
+15.2 You need accurate license codes
+15.3 You need to edit the Model.xml and add after DSHost
+
+       <ESBBase>
+                <License>@ESBLicenseKey@</License>
+        </ESBBase>
+        <RDBMSBase>
+        </RDBMSBase>
+15.4 Remove the @RDBMSLicenseKey@ from src/main/sonicesb/localtest.Topology.xml
+15.5 You need to rename ContainerProperties.xml.template to ContainerProperties.xml and edit in the sdm projects
+
+16. To get processes put in containers (SDM stage) you just need an entry EP.
+
+17. SDM archetypes are often copied per customer and adjusted to reflect the broker etc layout. 
+
+18. SDM model may wildcard services to include and base them on package name. See src/main/sonicesb/ContainerProperties.xml
+
+19. When you create a maven build configuration the run pull-down is a quick way to rerun
+
+20. NO one is permitted to run mvn deploy.... This is a Hudson job.
+
+ 

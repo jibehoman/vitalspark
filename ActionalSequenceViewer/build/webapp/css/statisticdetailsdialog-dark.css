@@ -1,0 +1,65 @@
+/* Copyright (c) 2002-2015, Aurea Software */
+
+
+
+td.act-sdd-data_regular_cell, td.act-sdd-data_summary_cell, td.act-sdd-data_summary_cell_disabled
+{
+	color: #d0d0d0;
+	background: transparent;
+}
+
+td.act-sdd-topheader,
+td.act-sdd-topheader:hover,
+td.act-sdd-topheader_selected,
+td.act-sdd-topheader_selected:hover,
+td.act-sdd-topheader_noflag,
+td.act-sdd-topheader_noflag:hover
+{
+	background-color : #B45101;
+}
+
+td.act-sdd-column_header, td.act-sdd-timeinfo, td.act-sdd-statheader_title
+{
+	background: transparent;
+}
+
+div.act-sdd-summarystats_titlebox
+{
+	background: #7C3E08;
+	border: 1px solid #B45101;
+}
+
+div.act-sdd-statistics_box
+{
+	background: #000000;
+	border: 1px solid #404040;
+}
+
+td.act-sdd-label_out,
+td.act-sdd-label_out_disabled:hover,
+td.act-sdd-label_darkblue,
+td.act-sdd-label_darkblue_disabled:hover,
+td.act-sdd-label_in,
+td.act-sdd-label_in_disabled:hover,
+td.act-sdd-label_lightblue,
+td.act-sdd-label_lightblue_disabled:hover
+{
+	background-color: #000000;
+}
+
+div.act-sdd-selection_titlebox,
+div.act-sdd-hover_titlebox
+{
+	background: #000000;
+	border: 1px solid #404040;
+}
+
+td.act-sdd-empty_hover_titlebox,
+td.act-sdd-empty_selection_titlebox,
+td.act-sdd-empty_hoverselection_titlebox,
+table.act-sdd-empty_hover_titlebox,
+table.act-sdd-empty_selection_titlebox,
+table.act-sdd-empty_hoverselection_titlebox
+{
+	background: #222222;
+}

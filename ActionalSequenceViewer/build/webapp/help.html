@@ -1,0 +1,137 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Test Identifier</title>
+<meta name="keywords" content=""/>
+<meta name="description" content=""/>
+<meta name="eReview" content=""/>
+</head>
+<body>
+
+<!-- ++++++++++++++++++ --> 
+<!-- Begin Title Region --> 
+<!-- ++++++++++++++++++ -->
+With regards to <b><i>Actional site rendition</b></i>, the most important test code components are, in order of significance, the <b><i>testid</i></b>, the <i><b>containercount</i></b>, <b><i>size</i></b> and <b><i>procedureid</i></b>.
+<div >
+  <h4>Test Code Format: ESB<b>.</b><font color="blue">procedureid</font><b>.</b><font color="blue">containercount</font>C<b>.</b><font color="blue">listenercount</font>L<b>.</b><font color="blue">QOS</font><b>.</b><font color="blue">testid</font><b>.</b><font color="blue">size</font>.</b><font color="blue">clientsetup</font></h4>
+</div>
+<!-- ++++++++++++++++ --> 
+<!-- End Title Region --> 
+<!-- ++++++++++++++++ --> 
+
+<!-- +++++++++++++++++++++++++++ --> 
+<!-- Begin Main Content Region   --> 
+<!-- +++++++++++++++++++++++++++ -->
+<div>
+  <table  cellspacing="0" cellpadding="0" align="center" border="1">
+    <thead>
+      <tr>
+        <th>Component</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align:left;vertical-align:top;padding:0"><font color="blue">procedureid</font></td>
+        <td style="text-align:left;vertical-align:top;padding:0">
+        Test code procedure. Values:
+        <ul>
+        <li><b>ACTIONAL</b> Standard BA Actional Instrumentation Payload Enabled on ESB.</li>
+        <li><b>ACTIONALNOPAYLOAD</b> Actional Instrumentation Payload Disabled by ESB Interceptor Configuration.</li>
+         </ul>
+        </td>
+        <tr>
+        <td style="text-align:left;vertical-align:top;padding:0"><font color="blue">containercount</font></td>
+        <td style="text-align:left;vertical-align:top;padding:0">
+        Number of redundant ESB containers in a given ESB container configuration. There may be multiple ESB container configurations involved in a test. 
+        For <i>each</i> configuration there are a number
+        of redundant containers reflected by this parameter. This number, typically 1 or 2, also the reflects number of physical 
+        machines used to spread ESB containers. <i>Actional perspective</i>: where this number is greater that 1, expect ESB sites to appear 
+        across multiple Level-1 names(machines). 
+        </td>
+        </tr>
+        <tr>
+        <td style="text-align:left;vertical-align:top;padding:0"><font color="blue">listenercount</font></td>
+        <td style="text-align:left;vertical-align:top;padding:0">
+        Number of listeners assigned to each service and process deployed in an ESB container. Number of containers and
+        number of listeners reflects the capacity to handle concurrent calls.
+        </td>
+        </tr>
+        <tr>
+        <td style="text-align:left;vertical-align:top;padding:0"><font color="blue">QOS</font></td>
+        <td style="text-align:left;vertical-align:top;padding:0">
+         <i>Actional perspective: <b>this setting has no impact.</b></i>
+ <p/>
+        Quality of Service. When a test is run <i>all</i> endpoints, dispatches, next step hops, DXSI data-service calls apply the QOS.
+        <b>Note:</b> the terms <b>STALO</b>(<i>Short-Term At-Least-Once</i>) and <b>ALOF</b>(<i>At-Least-Once-Fast</i>) are interchangeable;
+         the terms <b>PALO</b>(Persistent <i>At-Least-Once</i>) and <b>ALO</b>(<i>At-Least-Once</i>) are interchangeable.<br/>
+        </td>
+        </tr> 
+        <tr>
+        <td style="text-align:left;vertical-align:top;padding:0"><font color="blue">testid</font></td>
+        <td style="text-align:left;vertical-align:top;padding:0">
+        Test identifier. Each test has a unique test identifier. Associated with the test is a primary service or itinerary to test.
+        </td>
+        </tr>    
+        <tr>
+        <td style="text-align:left;vertical-align:top;padding:0"><font color="blue">size</font></td>
+        <td style="text-align:left;vertical-align:top;padding:0">
+        Message size applied to a test. <i>Actional perspective:</i>reflected by sequence diagram callsize. Display by hovering on the
+        line between caller and callee sites. 
+         </td>
+        </tr>          
+        <tr>
+        <td style="text-align:left;vertical-align:top;padding:0"><font color="blue">client setup</font></td>
+        <td style="text-align:left;vertical-align:top;padding:0">
+        Format <i>..C...S....MS</i> Reflects number of test client configuration in terms of connections, sessions and milliseconds between transactions. 
+         </td>
+        </tr>   
+        </tbody>
+  </table>
+  <b>Example:</b> 
+  <br/><br/>
+  <i>ESB.ACTIONAL.1C.05L.STALO.P3_LOCAL_P2.100K.01C.002S.1000MS</i>
+  <br/><br/>
+  Standard Actional instrumention at BA . A single step prototype itinerary is executed. There is one ESB container with 5  
+  listeners for the itinerary. The testid is P3_LOCAL_P2,  3 steps are done Intracontainer Messaging, then there is a JMS hop to the 4th step.
+  The 4th and 5th steps execute intracontainer. The test client interacts with one connection, 2 sessions and 1000MS delay
+  between sends.
+<br/>
+  <h3>Test Identifiers</h3>
+  <ul>
+    <li><b>P5</b> 5 Step Itinerary with Intra-Container Messaging.
+    <p/><b><i>What to look for:</i></b><p/>
+    5 adjacent ESB sites with operation names "Step1" .. "Step5". Call-size between sites should be 0 since each "call"
+    is implemented in-memory using the JVM thread call stack.
+    </li>
+    <li><b>P3_LOCAL_P2</b> 5 Step Itinerary with Intra-Container Messaging except after step 3 which hops over JMS.<br/>
+    <p/><b><i>What to look for:</i></b><p/>
+    5 ESB sites with operation names "Step1" .. "Step5". Other than between Step4 and Step5, call-size between sites should be 0 since each "call"
+    is implemented in-memory. Between Step3 and Step4 there is a JMS-Destination site and
+    the callsize reflects the test call message size plus some overhead, the latency should be larger due to JMS.   
+    </li> 
+    <li><b>P3_GSA_P2</b> 5 Step Itinerary with Intra-Container Messaging except after step 3 which hops over JMS into a different Sonic DRA node.<br/>
+    <p/><b><i>What to look for:</i></b><p/>
+    5 ESB sites with operation names "Step1" .. "Step5". Other than between Step4 and Step5, call-size between sites should be 0 since each "call"
+    is implemented in-memory. Between Step3 and Step4 there are <i>multiple</i> sites reflecting traversal over DRA. There are <i>four</i>
+    DRA nodes involved: BOAP, BORX, CBRX, CBAP. These sites are all <i>managed</i> sites. That are also 2 <i>unmanaged</i> sites between these and the ESB sites.
+    Since the <i>transaction reply walks back over DRA</i>, expect the 4 managed sites Level 1 and Level 2 names to appear in <i>reverse order</i> before the unmanaged client reply site appears at the end of the transaction.
+     </li> 
+    <li><b>STALODISPATCHLOCAL</b> JMS Dispatch step to ESB service over JMS.<br/>
+    <p/><b><i>What to look for:</i></b><p/>
+    A single step ESB itinerary. A dispatch step calls a standalone service over JMS. Look for the unmanaged JMS-Detination site.
+    </li> 
+     <li><b>STALODISPATCHGSA</b> JMS Dispatch step to ESB service over JMS into a different DRA node.<br/>
+    <p/><b><i>What to look for:</i></b><p/>
+    A single step ESB itinerary. A dispatch step calls a standalone service over JMS. As for P3_GSA_P2 multiple managed sites appear in the dispatch call outbound and return paths.
+    </li>
+    </ul>
+</div>
+<!-- +++++++++++++++++++++++++++ --> 
+<!-- End Main Content Region   --> 
+<!-- +++++++++++++++++++++++++++ --> 
+
+</body>
+</html>

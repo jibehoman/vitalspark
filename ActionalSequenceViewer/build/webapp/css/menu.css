@@ -1,0 +1,207 @@
+/* Copyright (c) 2002-2015, Aurea Software */
+
+
+
+
+
+
+.selectedtab a:link, .selectedtab a:active, .selectedtab a:visited
+{
+	text-decoration: none;
+	color: #3F4855;
+        border-top: none;
+        border-bottom: none;
+}
+
+.tab a:link, .tab a:active, .tab a:visited
+{
+	text-decoration: none;
+	color: #D6E1F1;
+        border-top: none;
+        border-bottom: none;
+}
+
+.tab a:hover
+{
+	text-decoration: none;
+	color: #3F4855;
+        border-top: none;
+        border-bottom: none;
+}
+
+td.selectedtab
+{
+	text-align: center;
+	background-color: #ffffff;
+	font-weight: bold;
+        padding: 0px 0px 0px 0px;
+	border: none;
+}
+
+td.tab, td.selectedtab, td.disabledtab
+{
+	background-color: transparent;
+	background-repeat: no-repeat;
+ 	background-position: -20px 0px;
+	color: #ffffff;
+	padding: 7px 6px 2px 6px;
+	font-size: 80%;
+	font-weight: normal;
+}
+
+td.tab
+{
+	border-right: solid 1px #50506d;
+	background-image: url(../images/tab_off.gif);
+}
+
+td.selectedtab
+{
+	border-right: solid 1px #37375c;
+	background-image: url(../images/tab_on.gif);
+	z-index: 10;
+}
+
+td.disabledtab
+{
+	border-right: solid 1px #333666;
+	background-image: url(../images/tab_disabled.gif);
+}
+
+a.tab:link
+{
+	color: #ffffff;
+	text-decoration: none;
+}
+
+a.tab:visited
+{
+	color: #ffffff;
+	text-decoration: none;
+}
+
+a.tab:hover
+{
+	color: #ffffff;
+	text-decoration: underline;
+}
+
+a.selectedtab:link
+{
+	color: #FECF71;
+	text-decoration: none;
+}
+
+a.selectedtab:visited
+{
+	color: #FECF71;
+	text-decoration: none;
+}
+
+a.selectedtab:hover
+{
+	color: #FECF71;
+	text-decoration: underline;
+}
+
+a.disabledtab, a.disabledtab:link, a.disabledtab:visited, a.disabledtab:hover
+{
+	color: #808080;
+	cursor: default;
+	text-decoration: none;
+}
+
+
+
+.sidebar
+{
+        border: none;
+        width: 128px;
+        padding: 0px 0px 0px 0px;
+	border-collapse: collapse;
+}
+
+td.sidebar
+{
+	border-collapse: collapse;
+	border: none;
+	background-color: #DBDBE5;
+	background-image: url(../images/sidebargradient.gif);
+	background-position: bottom left;
+	background-repeat: repeat-x;
+	width: 175px;
+	margin: 0px;
+	padding: 0px;
+	vertical-align: top;
+}
+
+div.sidemenutitle
+{
+	padding: 1em 0.5em 0.5em 1em;
+	font-size: 110%;
+	font-weight: bold;
+	color: #4A4A7B;
+}
+
+a.menuline, a.selectedmenuline, span.disabledmenuline
+{
+	display: block;
+	font-size: 100%;
+	font-weight: bold;
+	padding: 7px 5px 7px 2em;
+	text-decoration: none;
+	overflow: visible;
+	cursor: pointer;
+}
+
+a.menuline:link, a.menuline:visited, a.menuline:active
+{
+        color: #808080;
+        background-color: #DBDBE5;
+	text-decoration: none;
+	border: 1px solid #DBDBE5;
+}
+
+a.menuline:hover
+{
+	background-color: #d5d5e5;
+	text-decoration: underline;
+	background-image: url(../images/hovermenugradient.gif);
+	background-repeat: repeat-x;
+	border: 1px solid #dedeeb;
+	color: black;
+}
+
+a.selectedmenuline, a.selectedmenuline:link,
+a.selectedmenuline:visited, a.selectedmenuline:active,
+a.selectedmenuline:hover
+{
+	color: #4A4A7B;
+	background-color: #fec75a;
+	background-image: url(../images/selectmenugradient.gif);
+	background-repeat: repeat-x;
+	border: 1px solid #f2ae25;
+	font-size: 100%;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+span.disabledmenuline
+{
+	cursor: default;
+	color: #b0b0b0;
+}
+
+.visiblemarker
+{
+	visibility: visible;
+	float: left;
+	position: absolute;
+	left: 1em;
+}
+
+.hiddenmarker
+{
+	visibility: hidden;
+	display: none;
+}

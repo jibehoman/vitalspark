@@ -1,0 +1,340 @@
+/* Copyright (c) 2002-2015, Aurea Software */
+
+
+
+
+
+.act-sdd-data_table
+{
+	border-spacing:3px;
+	padding:2px 2px 2px 2px;
+	margin-bottom: 10px;
+	border: 0;
+	background:transparent;
+}
+
+td.act-sdd-data_regular_cell,
+td.act-sdd-data_summary_cell,
+td.act-sdd-data_summary_cell_disabled
+{
+	color:black;
+	font-family:arial;
+	font-size:11px;
+	font-weight:bold;
+	text-align: right;
+	width: 55px;
+	padding-right: 6px;
+}
+
+td.act-sdd-data_summary_cell_disabled
+{
+	color: #aaaaaa;
+}
+
+td.act-sdd-data_regular_cell
+{
+	padding-right: 15px;
+	padding-left: 15px;
+	width: 70px;
+}
+
+
+
+div.act-sdd-statistics_box
+{
+	position:absolute;
+	background-color: #F3F3FA;
+	opacity: 0.9;
+	border-bottom:1px solid #E7E7F3;
+	border-top:1px solid #E7E7F3;
+}
+
+div.act-sdd-summarystats_titlebox
+{
+	position:absolute;
+	background-color: #FDE7C1;
+	border: 1px solid #FCD798;
+
+}
+
+div.act-sdd-selection_titlebox
+{
+	position:absolute;
+	background-color: #CEDDF9;
+	border: 1px solid #93B5F2;
+}
+
+div.act-sdd-hover_titlebox
+{
+	position:absolute;
+	background-color: #FFFFFF;
+	border: 1px dotted #6495ED;
+	height:200px;
+	width: 100px;
+}
+
+table.act-sdd-empty_hover_titlebox,
+table.act-sdd-empty_selection_titlebox,
+table.act-sdd-empty_hoverselection_titlebox
+{
+	position:absolute;
+	border:1px dashed #DDDDDD;
+}
+
+td.act-sdd-empty_hover_titlebox,
+td.act-sdd-empty_selection_titlebox,
+td.act-sdd-empty_hoverselection_titlebox
+{
+	color:#AAAAAA;
+	font-family:arial;
+	font-size:10px;
+	font-style:italic;
+	font-weight:normal;
+	padding:4px 4px 6px 0px;
+	text-align:center;
+	vertical-align:middle;
+}
+
+table.act-sdd-title
+{
+	width: 100%;
+	border: none;
+	border-collapse: collapse;
+}
+td.act-sdd-titleicon
+{
+	padding: 10px 10px 0px 10px;
+	width: 1%;
+}
+td.act-sdd-titletext
+{
+	font-family: arial;
+	font-size: 14px;
+}
+
+td.act-sdd-title_callsfrom
+{
+	font-family: arial;
+	font-size: 12px;
+	padding-right:10px;
+	text-align: right;
+	vertical-align: bottom;
+}
+
+td.act-sdd-title_items
+{
+	font-family: arial;
+	font-size: 14px;
+	font-weight: normal;
+	vertical-align: bottom;
+}
+
+td.act-sdd-stats_selection
+{
+	vertical-align: top;
+	width: 25%
+}
+
+.act-sdd-stats_daterange
+{
+	font-size: 10px;
+	font-weight: normal;
+	font-style: italic;
+	text-align: center;
+	padding: 0px 0px 0px 0px;
+}
+
+td.act-sdd-timeinfo
+{
+	text-align: center;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+td.act-sdd-column_header
+{
+	padding: 3px 5px 0px 5px;
+	text-align: center;
+}
+
+span.act-sdd-column_title
+{
+	font-family: arial;
+	font-size: 11px;
+	font-weight: bold;
+	text-align: center;
+	white-space: nowrap;
+}
+
+td.act-sdd-graph_section_graph
+{
+	vertical-align: top;
+}
+
+td.act-sdd-graph_section_side
+{
+	vertical-align: top;
+	font-family: arial;
+	font-size: 10px;
+	font-weight: normal;
+	width: 100%;
+}
+
+td.act-sdd-summarystat_title,
+td.act-sdd-hover_title,
+td.act-sdd-selection_title
+{
+	font-size: 11px;
+	font-weight: bold;
+	text-align: center;
+	padding: 0px 2px 0px 2px;
+}
+
+td.act-sdd-statheader_title
+{
+	font-family: verdana;
+	font-size: 12px;
+	font-weight: bold;
+	text-align: left;
+	vertical-align: top;
+	padding: 3px 0px 2px 3px;
+}
+
+span.act-sdd-unit
+{
+	font-family: arial;
+	font-size: 10px;
+	font-weight: normal;
+	padding-left: 2px;
+}
+
+img.act-sdd-bullet
+{
+	padding: 0px 3px 0px 0px;
+	margin-bottom: 2px;
+	vertical-align: bottom;
+}
+
+td.act-sdd-topheader,
+td.act-sdd-topheader_selected,
+td.act-sdd-topheader_noflag
+{
+	font-family: verdana;
+	font-size: 10px;
+
+	background-position: 90% 2px;
+	background-repeat: no-repeat;
+
+	padding: 1px 1px 0px 2px;
+	margin: 1px;
+	cursor: default;
+}
+
+td.act-sdd-topheader_noflag { background-color: #FBD28E; }
+
+td.act-sdd-topheader
+{
+	background-image: url(../images/sdd/flag_unselected.gif);
+	background-color: #FBD28E; 
+}
+
+td.act-sdd-topheader_selected
+{
+	background-image: url(../images/sdd/flag_selected.gif);
+	background-color: #FBD28E; 
+}
+
+td.act-sdd-topheader:hover
+{
+	background-image: url(../images/sdd/flag_hover.gif);
+	background-color: #F9C268;  
+}
+td.act-sdd-topheader_selected:hover
+{
+	background-image: url(../images/sdd/flag_hover.gif);
+	background-color: #F9C268; 
+}
+table.act-sdd-statheader
+{
+	width: 100%;
+	border-collapse; collapse;
+	border-top: 1px solid #E7E7F3;
+	border-bottom: 1px solid #E7E7F3;
+	background-color: #F3F3FA;
+	padding-top: 1px;
+	padding-bottom: 2px;
+	position: relative;
+	z-index: 100;
+	opacity: 0.9;
+}
+
+td.act-sdd-label_in,
+td.act-sdd-label_out,
+td.act-sdd-label_in_disabled,
+td.act-sdd-label_out_disabled,
+td.act-sdd-label_lightblue,
+td.act-sdd-label_darkblue,
+td.act-sdd-label_lightblue_disabled,
+td.act-sdd-label_darkblue_disabled
+{
+	font-family: verdana;
+	font-size: 10px;
+	text-align: center;
+	padding: 0px 5px 0px 0px;
+	vertical-align: middle;
+
+	width: 40px;
+	height: 16px;
+	cursor: default;
+	background-repeat: no-repeat;
+	background-position: center left;
+}
+
+table.act-sdd-labels
+{
+	width:46px;
+	border-spacing: 0px;
+}
+td.act-sdd-label_in,
+td.act-sdd-label_out,
+td.act-sdd-label_in_disabled:hover,
+td.act-sdd-label_out_disabled:hover,
+td.act-sdd-label_lightblue,
+td.act-sdd-label_darkblue,
+td.act-sdd-label_lightblue_disabled:hover,
+td.act-sdd-label_darkblue_disabled:hover
+{
+	font-weight: bold;
+	color: white;
+}
+
+td.act-sdd-label_in_disabled,
+td.act-sdd-label_out_disabled,
+td.act-sdd-label_in:hover,
+td.act-sdd-label_out:hover,
+td.act-sdd-label_lightblue_disabled,
+td.act-sdd-label_darkblue_disabled,
+td.act-sdd-label_lightblue:hover,
+td.act-sdd-label_darkblue:hover
+{
+	font-weight: normal;
+	color: black;
+	background-image: url(../images/sdd/statlabel_disabled.gif);
+}
+
+td.act-sdd-label_in,
+td.act-sdd-label_in_disabled:hover,
+td.act-sdd-label_lightblue,
+td.act-sdd-label_lightblue_disabled:hover
+{
+	background-image: url(../images/sdd/statlabel_lightblue.gif);
+
+}
+
+td.act-sdd-label_out,
+td.act-sdd-label_out_disabled:hover,
+td.act-sdd-label_darkblue,
+td.act-sdd-label_darkblue_disabled:hover
+{
+	background-image: url(../images/sdd/statlabel_darkblue.gif);
+}

@@ -1,0 +1,450 @@
+/* Copyright (c) 2002-2015, Aurea Software */
+
+
+
+
+
+.sequenceDiagramContainer
+{
+    background-color: #F6F9ED;
+}
+
+.warningBox
+{
+	background-color:#fff1b6;
+	background-image: url(../images/gantt/warningpanelback.gif);
+	background-repeat: repeat-y;
+	color: #5b5316;
+	font-weight: bold;
+	font-size: 11px;
+	font-family: tahoma,arial,verdana,sans-serif;
+	padding-left: 25px;
+	padding-top: 6px;
+	padding-bottom: 5px;
+	padding-right: 15px;
+	border-bottom: 1px solid #e7e7ed;
+	
+	width: 100%; 
+}
+
+.warningBox-icon
+{
+	position:absolute;
+	top:5px;
+	left:5px;
+	height:20px;
+	width:20px;
+	background-image: url(../images/default/shared/warning.gif);
+	background-repeat: no-repeat;
+	overflow:hidden;
+}
+
+.legendCallOut
+{
+	font: 11px tahoma,arial,helvetica,sans-serif;
+	background-color: #F6F9ED;
+	padding: .1em;
+	border: 1px solid #202020;
+}
+
+.legendCallOutTable td
+{
+	font: 11px tahoma,arial,helvetica,sans-serif;
+}
+
+.operationName
+{
+    font: 10px tahoma,arial,helvetica,sans-serif;
+    color: #202020;
+    text-shadow: silver 2px 2px 2px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.failureTextOnReply
+{
+    font: 10px tahoma,arial,helvetica,sans-serif;
+    color: #202020;
+    text-shadow: silver 2px 2px 2px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.lifelineBox
+{
+	text-align: left;
+	white-space: nowrap;
+	padding: 4px;
+	border: 1px solid #404040;
+	line-height: 2em;
+	vertical-align: middle;
+	background-image: url('../images/lifelineboxshade.png');
+	background-repeat: repeat-x;
+	background-color: #f9f9da;
+	position: absolute;    
+}
+
+.lifelineBoxL1
+{
+	font: 11px tahoma,arial,helvetica,sans-serif;
+	color: #202020;
+}
+
+.lifelineBoxL2L3
+{
+	font: 11px tahoma,arial,helvetica,sans-serif;
+	white-space: nowrap;
+	text-align: left;
+	color: #202020;
+}
+
+.lineCallout
+{
+    font: 10px tahoma,arial,helvetica,sans-serif;
+	padding: .2em;
+	border: 1px solid #202020;
+	line-height: 1.2em;
+	background-image: url('../images/lifelineboxshade.png');
+	background-repeat: repeat-x;
+	background-color: #f9f9da;
+}
+
+.statsTable td
+{
+	font: 11px tahoma,arial,helvetica,sans-serif;
+}
+
+.statsTable th
+{
+	font: 11px tahoma,arial,helvetica,sans-serif;
+	font-weight: bold;
+}
+
+th.lineStat
+{
+	text-align:center;
+}
+
+.lifelineCallout
+{
+	font: 11px tahoma,arial,helvetica,sans-serif;
+	text-align: left;
+	padding: .2em;
+	border: 1px solid #202020;
+	line-height: 2em;
+	vertical-align: middle;
+	background-image: url('../images/lifelineboxshade.png');
+	background-repeat: repeat-x;
+	background-color: #f9f9da;
+}
+
+.lifelineL1Callout
+{
+	font: 11px tahoma,arial,helvetica,sans-serif;
+	white-space: nowrap;
+}
+
+.lifelineL2L3Callout
+{
+	font: 11px tahoma,arial,helvetica,sans-serif;
+	color: #556677;
+    	white-space: nowrap;
+}
+
+.callout th
+{
+	font: 11px tahoma,arial,helvetica,sans-serif;
+	font-weight: bold;
+}
+
+.callout td
+{
+	font: 11px tahoma,arial,helvetica,sans-serif;
+	font-weight: normal;
+}
+
+.lifeLine
+{
+	background-repeat: repeat-y;
+	background-image: url('../images/seqDiagram/lifeLine.png');
+	position: absolute;
+	overflow: hidden;
+}
+
+
+
+.activationBoxManagedWithFailure,
+.activationBoxManagedSecurityFault
+{
+	border: 1px solid #404040;
+	overflow: hidden;
+}
+
+.activationBoxUnmanaged,
+.activationBoxUnmanagedWithFailure,
+.activationBoxUnmanagedSecurityFault
+{
+	border: 1px dashed #999999;
+	overflow: hidden;
+}
+
+.activationBoxManaged
+{
+	border: 1px solid #295d2d;
+	background-color: #b3ecb7;
+	background-image: url('../images/seqDiagram/verticalgreenbarshade.png');
+	background-repeat: repeat-x;
+}
+
+.activationBoxUnmanaged
+{
+	background-color: #efefef;
+	background-image: url('../images/seqDiagram/verticaldesaturatedbarshade.png');
+	background-repeat: repeat-x;
+}
+
+.activationBoxManagedWithFailure,
+.activationBoxUnmanagedWithFailure
+{
+	background-color: #fbe794;
+}
+
+.activationBoxUnmanagedSecurityFault,
+.activationBoxManagedSecurityFault
+{
+	background-color: #f7c5f4;
+}
+
+.activationBoxAlertUnmanaged,
+.activationBoxAlertManaged
+{
+	border: 1px solid #580000;
+	background-color: #ff5959;
+	background-image: url('../images/seqDiagram/verticalredbarshade.png');
+	background-repeat: repeat-x;
+	overflow: hidden;
+}
+
+.activationBoxWarningUnmanaged,
+.activationBoxWarningManaged
+{
+	border: 1px solid #580000;
+	background-color: #fbe794;
+}
+
+.activationBoxManagedSynthetic
+{
+	border: 1px solid #bdb1b1;
+	background-color: #e5fae6;
+	overflow: hidden;
+}
+
+.activationBoxUnmanagedSynthetic
+{
+	border: 1px dashed #999999;
+	background-color: #f6f6f6;
+	overflow: hidden;
+}
+
+
+.activationBoxCP
+{
+	border: 1px solid #333333;
+	overflow: hidden;
+}
+
+.activationBoxCP0
+{
+	background-color: #17BECF;
+}
+
+.activationBoxCP1
+{
+	background-color: #FF7F0E;
+}
+
+.activationBoxCP2
+{
+	background-color: #2CA02C;
+}
+
+.activationBoxCP3
+{
+	background-color: #D62728;
+}
+
+.activationBoxCP4
+{
+	background-color: #9467BD;
+}
+
+.activationBoxCP5
+{
+	background-color: #8C564B;
+}
+
+.activationBoxCP6
+{
+	background-color: #E377C2;
+}
+
+.activationBoxCP7
+{
+	background-color: #7F7F7F;
+}
+
+.activationBoxCP8
+{
+	background-color: #BCBD22;
+}
+
+.activationBoxCP9
+{
+	background-color: #1F77B4;
+}
+
+
+
+.arrowDashedGreen,
+.arrowGreen,
+.arrowDashedRed,
+.arrowRed,
+.arrowResponseAlert,
+.arrowAlert,
+.arrowDashedYellow,
+.arrowYellow,
+.arrowDashedDesaturated,
+.arrowDesaturated,
+.arrowDashedBlue,
+.arrowBlue
+{
+	background-image: url("../images/seqDiagram/horizontalarrows.png");
+	background-repeat: repeat-x;
+	opacity: 0.8;
+	overflow: hidden;
+}
+
+.arrowDashedGreen 	{ background-position: 0px  -33px; }
+.arrowGreen		{ background-position: 0px  -47px; }
+.arrowDashedRed 	{ background-position: 0px  -89px; }
+.arrowRed		{ background-position: 0px -103px; }
+.arrowResponseAlert 	{ background-position: 0px  -89px; }
+.arrowAlert		{ background-position: 0px -103px; }
+.arrowDashedYellow 	{ background-position: 0px -145px; }
+.arrowYellow		{ background-position: 0px -159px; }
+.arrowDashedDesaturated	{ background-position: 0px -201px; }
+.arrowDesaturated	{ background-position: 0px -215px; }
+.arrowDashedBlue	{ background-position: 0px -257px; }
+.arrowBlue		{ background-position: 0px -271px; }
+
+.arrowDashedGreenVertical,
+.arrowGreenVertical,
+.arrowDashedRedVertical,
+.arrowRedVertical,
+.arrowResponseAlertVertical,
+.arrowAlertVertical,
+.arrowDashedYellowVertical,
+.arrowYellowVertical,
+.arrowDashedDesaturatedVertical,
+.arrowDesaturatedVertical,
+.arrowDashedBlueVertical,
+.arrowBlueVertical
+{
+	background-image: url("../images/gantt/verticalarrows.png");
+	background-repeat: repeat-y;
+	opacity: 0.8;	
+	overflow: hidden;
+}
+
+.arrowDashedGreenVertical	{ background-position:  -33px 0px; }
+.arrowGreenVertical		{ background-position:  -47px 0px; }
+.arrowDashedRedVertical		{ background-position:  -89px 0px; }
+.arrowRedVertical		{ background-position: -103px 0px; }
+.arrowResponseAlertVertical	{ background-position:  -89px 0px; }
+.arrowAlertVertical		{ background-position: -103px 0px; }
+.arrowDashedYellowVertical	{ background-position: -145px 0px; }
+.arrowYellowVertical		{ background-position: -159px 0px; }
+.arrowDashedDesaturatedVertical	{ background-position: -201px 0px; }
+.arrowDesaturatedVertical	{ background-position: -215px 0px; }
+.arrowDashedBlueVertical	{ background-position: -257px 0px; }
+.arrowBlueVertical		{ background-position: -271px 0px; }
+
+
+
+
+.arrowHeadOpenGreenRight,
+.arrowHeadOpenGreenLeft,
+.arrowHeadFilledInGreenRight,
+.arrowHeadFilledInGreenLeft,
+.arrowHeadOpenRedRight,
+.arrowHeadOpenRedLeft,
+.arrowHeadFilledInRedRight,
+.arrowHeadFilledInRedLeft,
+.arrowHeadOpenAlertRight,
+.arrowHeadOpenAlertLeft,
+.arrowHeadFilledInAlertRight,
+.arrowHeadFilledInAlertLeft,
+.arrowHeadOpenYellowRight,
+.arrowHeadOpenYellowLeft,
+.arrowHeadFilledInYellowRight,
+.arrowHeadFilledInYellowLeft,
+.arrowHeadOpenDesaturatedRight,
+.arrowHeadOpenDesaturatedLeft,
+.arrowHeadFilledInDesaturatedRight,
+.arrowHeadFilledInDesaturatedLeft,
+.arrowHeadOpenBlueRight,
+.arrowHeadOpenBlueLeft,
+.arrowHeadFilledInBlueRight,
+.arrowHeadFilledInBlueLeft	
+{
+	background-image: url("../images/seqDiagram/horizontalarrows.png");
+	background-repeat: no-repeat;
+	opacity: 0.8;
+	overflow: hidden;
+}
+
+.arrowHeadOpenGreenRight	{ background-position:  -3px    0px; }
+.arrowHeadOpenGreenLeft		{ background-position: -14px    0px; }
+.arrowHeadFilledInGreenRight	{ background-position:  -3px  -14px; }
+.arrowHeadFilledInGreenLeft	{ background-position: -14px  -14px; }
+.arrowHeadOpenRedRight		{ background-position:  -3px  -56px; }
+.arrowHeadOpenRedLeft		{ background-position: -14px  -56px; }
+.arrowHeadFilledInRedRight	{ background-position:  -3px  -70px; }
+.arrowHeadFilledInRedLeft	{ background-position: -14px  -70px; }
+.arrowHeadOpenAlertRight	{ background-position:  -3px  -56px; }
+.arrowHeadOpenAlertLeft		{ background-position: -14px  -56px; }
+.arrowHeadFilledInAlertRight	{ background-position:  -3px  -70px; }
+.arrowHeadFilledInAlertLeft	{ background-position: -14px  -70px; }
+.arrowHeadOpenYellowRight	{ background-position:  -3px -112px; }
+.arrowHeadOpenYellowLeft	{ background-position: -14px -112px; }
+.arrowHeadFilledInYellowRight	{ background-position:  -3px -126px; }
+.arrowHeadFilledInYellowLeft	{ background-position: -14px -126px; }
+.arrowHeadOpenDesaturatedRight	{ background-position:  -3px -168px; }
+.arrowHeadOpenDesaturatedLeft	{ background-position: -14px -168px; }
+.arrowHeadFilledInDesaturatedRight{background-position: -3px -182px; }
+.arrowHeadFilledInDesaturatedLeft{background-position: -14px -182px; }
+.arrowHeadOpenBlueRight		{ background-position:  -3px -224px; }
+.arrowHeadOpenBlueLeft		{ background-position: -14px -224px; }
+.arrowHeadFilledInBlueRight	{ background-position:  -3px -238px; }
+.arrowHeadFilledInBlueLeft	{ background-position: -14px -238px; }
+
+
+.failureHighlighterBox
+{
+	background-color: #ffdf5f;
+	overflow: hidden;
+}
+
+.replySecurityFaultHighlighterBox
+{
+	background-color: #f7c5f4;
+	overflow: hidden;
+}

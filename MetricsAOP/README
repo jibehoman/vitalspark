@@ -1,0 +1,38 @@
+Log Analyser Enhancements
+
+Description
+
+Log Analyser Enhancements are Actional Plugmaker introduced enhancements to the Sonic LogFile 
+support utility.
+
+These enhancements, breakdown management related traffic into finer details.
+
+Usage
+
+Edit and customize the loganalyser.sh file. Set the variables SONICBASE, SONICVER, SEP, and AOP
+appropriately.
+
+Running
+
+loganalyse.sh pathtologdirectory
+
+Capture the output to a log file.
+To see directory lookups grep for "getElement Operation" e.g. you see the calling client and entry.
+
+e.g. 
+>loganalyse.sh /c/support/MQ-35012/Y1OCT7 > x
+>grep "getElement Operation" x
+getElement Operation:caller:dpBAy1.BOMJIZ_ctBrk01   entry:/_MFContext/com.ba.sip.cargoload.FSC.general.shared at 07.10.15 12_37_54.717
+getElement Operation:caller:dpBAy1.BOMJIZ_ctBrk02   entry:/_MFContext/com.ba.sip.cargoload.AirwaybillUpdate.shared at 07.10.15 12_37_54.878
+etc
+
+e.g. 
+
+>loganalyse.sh /c/support/MQ-35012/OCT6 > x
+>grep "getElement Operation" x
+getElement Operation:caller:dpBAprd2.BOEBAZ_ctdamV01a_01@BA_ESB_MRN_BO   entry:/xqEndpoints/BORXAZ_RN01::BOGWIZ_RN01::ba.sip.svc.cw.altea.AmadeusAccessFacadeV02.response.entry at 06.10.15 14_54_18.926
+getElement Operation:caller:dpBAprd2.BOEBAZ_ctdamV01a_01@BA_ESB_MRN_BO   entry:/xqEndpoints/BORXAZ_RN01::BOGWIZ_RN01::ba.sip.svc.cw.altea.AmadeusAccessFacadeV02.response.entry at 06.10.15 14_54_18.932
+etc
+
+If you don't see any entries like "[afterOnLogEventRead]" in the output it means that plugmaker is 
+misconfigured. Check the AOP setting.

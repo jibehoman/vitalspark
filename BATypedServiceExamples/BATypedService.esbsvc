@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xq:service xmlns:XMLSchema-instance="http://www.w3.org/2001/XMLSchema-instance" xmlns:xq="http://www.sonicsw.com/sonicxq" name="BATypedService" type_ref="BATypedService" XMLSchema-instance:schemaLocation="http://www.sonicsw.com/sonicxq ..\..\..\Sonic\Sonic8.1\SONICINSTALLS8.1-248\ESB8.1\schema\service.xsd"><xq:entry_ref>BasicTypedService.Entry</xq:entry_ref><xq:exitEndpoint_list><xq:exitEndpoint endpoint_ref="REPLY_TO" type="REPLY_TO"/></xq:exitEndpoint_list><xq:faultEndpoint endpoint_ref="REPLY_TO" type="REPLY_TO"/><xq:rejectEndpoint endpoint_ref="dev.RME" type="ENDPOINT"/><xq:classLoading><xq:serviceType><xq:classpath_list><xq:classpath>sonicfs:///workspace/BATypedServiceExamples/lib/custom-services-classes.jar</xq:classpath></xq:classpath_list></xq:serviceType></xq:classLoading><xq:interface>
+    <xq:operation name="regexpreplace" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xq="http://www.sonicsw.com/sonicxq">
+      <xq:input name="Input">
+        <xq:parameter name="candidate" type="xsd:string"/>
+        <xq:parameter name="regexp" type="xsd:string"/>
+      </xq:input>
+      <xq:output name="Output">
+        <xq:parameter name="result" type="xsd:string" collection="false"/>
+     </xq:output>
+    </xq:operation>
+    <xq:operation name="propertyFileToXML" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xq="http://www.sonicsw.com/sonicxq">
+      <xq:input name="Input">
+        <xq:parameter name="file" type="xsd:string"/>
+      </xq:input>
+      <xq:output name="Output">
+        <xq:parameter name="result" type="xsd:string" collection="false"/>
+     </xq:output>
+    </xq:operation>    
+    <xq:operation name="ldapQuery" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xq="http://www.sonicsw.com/sonicxq">
+      <xq:input name="Input">
+        <xq:parameter name="p1" type="xsd:string"/>
+        <xq:parameter name="p2" type="xsd:string"/>
+        <xq:parameter name="p3" type="xsd:string"/>
+      </xq:input>
+      <xq:output name="Output">
+        <xq:parameter name="collection" type="xq:parameterHolder" collection="true"/>
+        <xq:parameter name="stringCollection" type="xsd:string" collection="true" contentType="text/xml"/>
+     </xq:output>
+    </xq:operation>
+  </xq:interface></xq:service>

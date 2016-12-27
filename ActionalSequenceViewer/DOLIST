@@ -1,0 +1,10 @@
+AUTOMATION ITEMS
+
+1. Proper SVN home for ActionalSequenceViewer
+
+
+NOTES
+
+1. Need to run "chrome --allow-file-access-from-files" to load local files
+2. Not all icons are displayed in the stand-alone display mode. Networkicons require a servlet to deliver. This is not
+a major functionality issue

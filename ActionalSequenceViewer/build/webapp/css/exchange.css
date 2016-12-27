@@ -1,0 +1,67 @@
+/* Copyright (c) 2002-2015, Aurea Software */
+
+
+.exchangeMessage
+{
+	background-color:#F5F6FC;
+	border:1px solid #DBDBE5;
+}
+
+.exchangeMessageHeaders
+{
+	background-color:#F5F6FC;
+	border-bottom:1px solid #DBDBE5;
+}
+
+.exchangeMessageTitleBar, .exchangeMessage
+{
+	font-family: Lucida Console,monospaced;
+	font-size: 11px;
+}
+
+pre
+{
+	font-family: Lucida Console,monospaced;
+	font-size: 11px;
+}
+
+.elementName
+{
+	color: #6B6B91;
+}
+
+.nsPrefix
+{
+    color: #A758AA;
+}
+.nsUri
+{
+    color: #A758AA;
+}
+.xmlns
+{
+    color: #A758AA;
+}
+
+.xmlTreeElementName
+{
+    color: #8f5491;
+}
+
+.annotationManagementBar
+{
+	background-color: #F5F6FC;
+}
+
+.highlight
+{
+	 background-color: transparent;
+	 color: #FECF71;
+}
+
+td.mrlink
+{
+	color: 0000ff;
+	text-decoration: underline;
+}
+

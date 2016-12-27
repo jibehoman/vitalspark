@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="actionalSequenceViewer_ClientSideWebSite" default="build" basedir=".">
+  <description>
+   Master build file for an unhosted web site to support offline viewing of flow maps
+  </description>
+
+  <!-- ========================================= -->
+  <!-- Environment and Properties                -->
+  <!-- ========================================= -->
+
+  <property file="build.properties"/>
+  <property name="testdata.dir" location="${basedir}/testdata"/>
+  <property name="webartifactssource.dir" location="${basedir}/webapp/lgserver"/>
+  <property name="build.dir" location="${basedir}/build"/>
+  <property name="build.webappdir" location="${build.dir}/webapp"/>
+
+  <!-- ========================================= -->
+  <!-- Top Level Components/Directories          -->
+  <!-- ========================================= -->
+
+  <target name="all" depends="clean,build" description="Clean and build the web site."/>
+
+  <target name="build">
+  	<unzip src="${build.war}" dest="${build.webappdir}">
+  	 <patternset>
+  	    <include name="js/"/>
+  	    <include name="css/"/>
+  	    <include name="images/"/>
+  	  </patternset>
+    </unzip>
+    <copy todir="${build.webappdir}">
+      <fileset dir="${webartifactssource.dir}" includes="**/*"/>
+    </copy>
+  	<copy todir="${build.webappdir}">
+      <fileset dir="${testdata.dir}" includes="**/*.json"/>
+    </copy>
+	<echo>
+##teamcity[publishArtifacts '${build.webappdir}/** =&gt; transactionbrowser']
+</echo>
+  </target>
+
+  <target name="clean" description="clean all built artifacts, except dependencies.">
+    <delete dir="${build.dir}"/>
+  </target>
+
+</project>

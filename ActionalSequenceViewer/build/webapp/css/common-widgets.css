@@ -1,0 +1,127 @@
+/* Copyright (c) 2002-2015, Aurea Software */
+
+
+
+
+
+.act-table-paging-image
+{
+	height: 20px;
+	width: 20px;
+}
+
+.act-table-page-first-image
+{
+	background: url(../images/first.on.gif) no-repeat center center;
+}
+
+.act-table-page-first-image-disabled
+{
+	background: url(../images/first.off.gif) no-repeat center center;
+}
+
+.act-table-page-prev-image
+{
+	background: url(../images/prev.on.gif) no-repeat center center;
+}
+
+.act-table-page-prev-image-disabled
+{
+	background: url(../images/prev.off.gif) no-repeat center center;
+}
+
+.act-table-page-next-image
+{
+	background: url(../images/next.on.gif) no-repeat center center;
+}
+
+.act-table-page-next-image-disabled
+{
+	background: url(../images/next.off.gif) no-repeat center center;
+}
+
+.act-table-page-last-image
+{
+	background: url(../images/last.on.gif) no-repeat center center;
+}
+
+.act-table-page-last-image-disabled
+{
+	background: url(../images/last.off.gif) no-repeat center center;
+}
+
+
+.act-table-sorting-forward
+{
+	height: 6px;
+	width: 7px;
+	background: url(../images/sort.forward.gif) no-repeat center center;
+}
+
+.act-table-sorting-reverse
+{
+	height: 6px;
+	width: 7px;
+	background: url(../images/sort.reverse.gif) no-repeat center center;
+}
+
+
+
+.act-statusbar-success-image
+{
+	width: 20px;
+	height: 20px;
+	background: url(../icons/Check.gif) no-repeat center center;
+}
+
+.act-statusbar-warning-image
+{
+	width: 20px;
+	height: 20px;
+	background: url(../icons/Caution.gif) no-repeat center center;
+}
+
+.act-statusbar-info-image
+{
+	width: 20px;
+	height: 20px;
+	background: url(../icons/Inform.gif) no-repeat center center;
+}
+
+.act-statusbar-error-image
+{
+	width: 20px;
+	height: 20px;
+	background: url(../icons/Error.gif) no-repeat center center;
+}
+
+.act-statusbar-close-image
+{
+	width: 10px;
+	height: 10px;
+	background: url(../images/close.gif) no-repeat center center;
+}
+
+.act-statusbar-details-up-image
+{
+	width: 7px;
+	height: 7px;
+	background: url(../images/sort.reverse.gif) no-repeat center center;
+}
+
+.act-statusbar-details-down-image
+{
+	width: 7px;
+	height: 7px;
+	background: url(../images/sort.forward.gif) no-repeat center center;
+}
+
+.act-confirm-msgbox .x-toolbar-right 
+{
+	display: none;
+}
+
+.act-confirm-msgbox .x-window-body 
+{
+	background-color: #EFEFF1 !important;
+}

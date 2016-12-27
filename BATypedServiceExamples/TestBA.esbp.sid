@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sid xmlns="http://www.sonicsw.com/sonicesb/sid"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	  <service>
+		    <properties>
+			      <name>ESB Process</name>
+			      <type>esbp</type>			
+			      <namespace>http://www.sonicsw.com/sonicesb/sid</namespace>
+		    </properties>
+
+		    <interface name="ESBProcessInterface">
+			      <operation name="Invoke">
+				        <input name="Input">
+					          
+				           <part binding-info="file" binding-name="Part" is-wsdl-source="false" name="file"
+                     namespace="http://www.w3.org/2001/XMLSchema"
+                     type="xsd:anyType"/>
+               <part binding-info="candidate" binding-name="Part" is-wsdl-source="false"
+                     name="candidate"
+                     namespace="http://www.w3.org/2001/XMLSchema"
+                     type="xsd:anyType"/>
+               <part binding-info="re" binding-name="Part" is-wsdl-source="false" name="re"
+                     namespace="http://www.w3.org/2001/XMLSchema"
+                     type="xsd:anyType"/>
+               <part binding-info="h1" binding-name="Header" is-wsdl-source="false" name="h1"
+                     namespace="http://www.w3.org/2001/XMLSchema"
+                     type="xsd:anyType"/>
+               <part binding-info="h2" binding-name="Header" is-wsdl-source="false" name="h2"
+                     namespace="http://www.w3.org/2001/XMLSchema"
+                     type="xsd:anyType"/>
+               <part binding-info="h3" binding-name="Header" is-wsdl-source="false" name="h3"
+                     namespace="http://www.w3.org/2001/XMLSchema"
+                     type="xsd:anyType"/>
+               <part binding-info="c0" binding-name="Part" is-wsdl-source="false" name="c0"
+                     namespace="http://www.w3.org/2001/XMLSchema"
+                     type="xsd:anyType"/>
+               <part binding-info="c1" binding-name="Part" is-wsdl-source="false" name="c1"
+                     namespace="http://www.w3.org/2001/XMLSchema"
+                     type="xsd:anyType"/>
+            </input>
+				        <output name="Output">
+					          
+				           <part binding-info="name" binding-name="Part" is-wsdl-source="false"
+                     name="DefaultOutput"
+                     namespace="http://www.w3.org/2001/XMLSchema"
+                     type="xsd:anyType"/>
+            </output>
+			      </operation>
+		    </interface>
+	  </service>
+   <esbp name="TestBA"/>
+   <scenarios xmlns="http://sonic.esb.org/scenario/">
+      <scenario create-xq-info="Parameter-Based" name="TestBA_default"
+                type="ESBProcessInterface">
+         <scenario-operation name="Invoke">
+            <input-values>
+               <part-values name="file">
+                  <input-property>Literal</input-property>
+                  <input-value>fv</input-value>
+                  <input-type>anyType [http://www.w3.org/2001/XMLSchema]</input-type>
+               </part-values>
+               <part-values name="candidate">
+                  <input-property>Literal</input-property>
+                  <input-value>cv</input-value>
+                  <input-type>anyType [http://www.w3.org/2001/XMLSchema]</input-type>
+               </part-values>
+               <part-values name="re">
+                  <input-property>Literal</input-property>
+                  <input-value>rev</input-value>
+                  <input-type>anyType [http://www.w3.org/2001/XMLSchema]</input-type>
+               </part-values>
+               <part-values name="h1">
+                  <input-property>Literal</input-property>
+                  <input-value>h1v</input-value>
+                  <input-type>anyType [http://www.w3.org/2001/XMLSchema]</input-type>
+               </part-values>
+               <part-values name="h2">
+                  <input-property>Literal</input-property>
+                  <input-value>h2v</input-value>
+                  <input-type>anyType [http://www.w3.org/2001/XMLSchema]</input-type>
+               </part-values>
+               <part-values name="h3">
+                  <input-property>Literal</input-property>
+                  <input-value>h3v</input-value>
+                  <input-type>anyType [http://www.w3.org/2001/XMLSchema]</input-type>
+               </part-values>
+               <part-values name="c0">
+                  <input-property>Literal</input-property>
+                  <input-value>c0v</input-value>
+                  <input-type>anyType [http://www.w3.org/2001/XMLSchema]</input-type>
+               </part-values>
+               <part-values name="c1">
+                  <input-property>Literal</input-property>
+                  <input-value>c1v</input-value>
+                  <input-type>anyType [http://www.w3.org/2001/XMLSchema]</input-type>
+               </part-values>
+            </input-values>
+         </scenario-operation>
+         <run-on>Test ESBContainer RunHandler</run-on>
+         <problems/>
+      </scenario>
+   </scenarios>
+</sid>

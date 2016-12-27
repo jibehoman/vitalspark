@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Topology xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:///C:/Sonic2013/SDM8.6/schemas/Topology.xsd"
+	xmlns:xi="http://www.w3.org/2001/XInclude">
+       <xi:include href="parameterDeclarations.xml"/>
+       <xi:include href="defaultEnvironment.xml" />
+</Topology>

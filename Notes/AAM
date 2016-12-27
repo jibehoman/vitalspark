@@ -1,0 +1,74 @@
+
+----- Service Type Assets -----
+
+1. Will not develop service types(ST) in AAM initially. The reason that we will not do this is that 
+the dependency management for 3rd party jars is too complex. 
+
+2.People who want to develop service types are expected to use Maven and SVN. 
+
+3.People who want to develop service types are expected to use have their own Maven repository(Nexus) but
+ we may want to support those who do not. For example, I can build artifacts using the central maven repository.
+ As long as I work locally(maven install versus maven deploy) I am not pushing artifacts out of my machine.
+
+4. A new lifecycle could be invented that says "maven deploy-asset" this deploys the asset to AAM(the maven artifact
+identifier must be available).
+
+5. We could try and align use of AAM with the field use of Maven. Beyond the ST assets, process and sdm assets
+are the other types of artifacts that the field defines.
+
+----- Process Asset Overview
+
+1. Create a new Sonic Process project(or - checkout existing from AAM)
+(Field Analogy: create a new Maven project of archetype "process"(or checkout from SVN))
+
+Call this project PAssetNew
+
+Behind the scenes, we might be able to work with the maven project layout that comes from the archetype....
+
+PAssetNew depends on existing assets STAsset1, STAsset2, PAsset1.
+
+2. Drag STAsset1, STAsset2, PAsset1 etc into Workbench.
+
+ ***(I'd like to see a WB option to drag to the deploy folder automatically upload) 
+
+This action ALSO internally updates the POM dependencies. 
+
+3. Develop a process(or many), deploy, test, etc
+
+4. Create a xar artifact and place into the repository
+
+*** I want to eliminate the need to run an independent deploy export tool(deploy import tool is already mitigated 
+by the "deploy" folder). Say, an  "extract" folder could be the metaphor. 
+Extract could present domain view for objects to select for extract. ***
+
+Technically we want an option to "deep copy dependencies" versus "shallow copy link dependencies".
+When the process(es) developed within PAssetExample are selected for extraction this is a shallow XAR 
+extract(dependents STAsset1, STAsset2, PAsset1 are not copied: they are referenced in the POM)..
+
+ There is a direct Maven terminology for this ("provided" means that dependencies will come
+ from elsewhere in the framework).  
+
+ 
+ --------------- SDM Asset Overview
+ 
+ 1. Create a new Sonic SDM project(or - checkout existing from AAM)
+(Field Analogy: create a new Maven project of archetype "sdm"(or checkout from SVN))
+
+Call this project MAssetNew
+
+Behind the scenes, we might be able to work with the maven project layout that comes from the archetype....
+
+MAssetNew depends SAssetNew and indirectly on existing assets STAsset1, STAsset2, PAsset1.
+
+2. Drag SAssetNew etc into Workbench.
+
+ Place into the deploy folder.... automatically we deploy
+ 
+This action ALSO internally updates the POM dependencies. 
+
+3. Develop a SDM ModelTiree#72
+
+ 
+ 7. Create of checkout an SDM project.... Select dependencies(process projects).....entirely same concept...
+ This "fronts" a maven sdm archetype project.
+ 

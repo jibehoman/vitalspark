@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="ESB" resourceRoot="" soapui-version="5.0.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="nftp.1StepSplitJoin5ParallelBinding" type="wsdl" bindingName="{urn:nftp.1StepSplitJoin5Parallel}nftp.1StepSplitJoin5ParallelBinding" soapVersion="1_2" anonymous="optional" definition="http://172.30.74.13:4400/sst/runtime.asvc/com.actional.intermediary.E?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://172.30.74.13:4400/sst/runtime.asvc/com.actional.intermediary.E?WSDL"><con:part><con:url>http://172.30.74.13:4400/sst/runtime.asvc/com.actional.intermediary.E?WSDL</con:url><con:content><![CDATA[<definitions name="nftp.1StepSplitJoin5Parallel" targetNamespace="urn:nftp.1StepSplitJoin5Parallel" xmlns:ns2="http://schemas.xmlsoap.org/wsdl/jms/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ns3="http://www.w3.org/2006/05/addressing/wsdl" xmlns:tns="urn:nftp.1StepSplitJoin5Parallel" xmlns:ns0="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:types="urn:nftp.1StepSplitJoin5Parallel/types" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <documentation>Created by CX Monitor Intermediary 11.0002.1.9329, Wed Mar 16 20:28:44 UTC 2016</documentation>
+  <types>
+    <xsd:schema targetNamespace="urn:nftp.1StepSplitJoin5Parallel/types">
+      <xsd:element name="Request">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="DefaultInput" type="xsd:anyType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="DefaultOutput" type="xsd:anyType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name="Request">
+    <part name="Request" element="types:Request"/>
+  </message>
+  <message name="Response">
+    <part name="Response" element="types:Response"/>
+  </message>
+  <portType name="nftp.1StepSplitJoin5ParallelPortType">
+    <operation name="nftp.1StepSplitJoin5Parallel">
+      <input message="tns:Request"/>
+      <output message="tns:Response"/>
+    </operation>
+  </portType>
+  <binding name="nftp.1StepSplitJoin5ParallelBinding" type="tns:nftp.1StepSplitJoin5ParallelPortType">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="nftp.1StepSplitJoin5Parallel">
+      <soap12:operation soapAction="urn:nftp.1StepSplitJoin5Parallel/"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="nftp.1StepSplitJoin5ParallelAccessPoint">
+    <port name="nftp.1StepSplitJoin5ParallelAccessPointPort" binding="tns:nftp.1StepSplitJoin5ParallelBinding">
+      <soap12:address location="http://peastonai.aurea.local:4400/sst/runtime.asvc/com.actional.intermediary.E"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://peastonai.aurea.local:4400/sst/runtime.asvc/com.actional.intermediary.E</con:endpoint></con:endpoints><con:operation isOneWay="false" action="urn:nftp.1StepSplitJoin5Parallel/" name="nftp.1StepSplitJoin5Parallel" bindingOperationName="nftp.1StepSplitJoin5Parallel" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://172.30.74.13:4400/sst/runtime.asvc/com.actional.intermediary.E</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="urn:nftp.1StepSplitJoin5Parallel/types">
+   <soap:Header/>
+   <soap:Body>
+      <typ:Request>
+         <DefaultInput><x/></DefaultInput>
+      </typ:Request>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:nftp.1StepSplitJoin5Parallel/nftp.1StepSplitJoin5ParallelPortType/nftp.1StepSplitJoin5ParallelRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite name="nftp.1StepSplitJoin5ParallelBinding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="nftp.1StepSplitJoin5Parallel TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="nftp.1StepSplitJoin5Parallel"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>nftp.1StepSplitJoin5ParallelBinding</con:interface><con:operation>nftp.1StepSplitJoin5Parallel</con:operation><con:request name="nftp.1StepSplitJoin5Parallel"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://peastonai.aurea.local:4400/sst/runtime.asvc/com.actional.intermediary.E</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:typ="urn:nftp.1StepSplitJoin5Parallel/types">
+   <soap:Header/>
+   <soap:Body>
+      <typ:Request>
+         <DefaultInput>?</DefaultInput>
+      </typ:Request>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="urn:nftp.1StepSplitJoin5Parallel/nftp.1StepSplitJoin5ParallelPortType/nftp.1StepSplitJoin5ParallelRequest"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>

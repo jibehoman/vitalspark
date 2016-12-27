@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+	"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+	
+<tiles-definitions>
+	<definition name="commission" extends="standardLayout">
+		<put-attribute name="title" value="Welcome" />
+		<put-attribute name="body" value="/WEB-INF/flows/commission.jsp" />
+	</definition>
+	<definition name="monitor" extends="standardLayout">
+		<put-attribute name="title" value="Welcome" />
+		<put-attribute name="body" value="/WEB-INF/flows/monitor.jsp" />
+	</definition>
+	<definition name="documentation" extends="standardLayout">
+		<put-attribute name="title" value="Welcome" />
+		<put-attribute name="body" value="/WEB-INF/flows/documentation.jsp" />
+	</definition>	
+	<definition name="maintenance" extends="standardLayout">
+		<put-attribute name="title" value="Welcome" />
+		<put-attribute name="body" value="/WEB-INF/flows/maintenance.jsp" />
+	</definition>
+		<definition name="services" extends="standardLayout">
+		<put-attribute name="title" value="Welcome" />
+		<put-attribute name="body" value="/WEB-INF/flows/services.jsp" />
+	</definition>	
+</tiles-definitions>

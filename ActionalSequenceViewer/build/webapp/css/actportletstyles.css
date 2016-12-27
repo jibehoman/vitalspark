@@ -1,0 +1,120 @@
+/* Copyright (c) 2002-2015, Aurea Software */
+
+
+
+
+
+td.actportlet, td.actportlet2, td.actportleta, td.actportlet2a, th.actportlet
+{
+	font-family: Tahoma, Verdana, Helvetica, sans-serif;
+	font-size: 11px;
+	padding: 1px 5px 1px 5px;
+	white-space: nowrap;
+}
+
+th.actportlet
+{
+	background-color: #afafd3;
+	color: black;
+	text-align: left;
+	border-top: none;
+	border-bottom: 2px solid #60605C;
+	font-size: 11px;
+}
+
+td.actportlet, td.actportleta
+{
+	background-color: #f5f6fc;
+}
+
+td.actportlet2, td.actportlet2a
+{
+	background-color: white;
+}
+
+td.actportlet, td.actportleta, td.actportlet2a
+{
+	border-right: 1px solid #7978ae;
+}
+
+td.actportleta img, td.actportlet2a img
+{
+	vertical-align: middle;
+}
+
+td.actportleta a, td.actportlet2a a
+{
+	color: blue;
+	text-decoration: underline;
+}
+
+table.actportlet
+{
+	padding: 0;
+	border-collapse: collapse;
+	margin: 0;
+	border: 1px solid #A9A9A9;
+	background-color: white;
+}
+
+
+table.pct-actportlet
+{
+	border-collapse: collapse;
+	background-color: white;
+}
+
+
+th.pct-actportlet
+{
+	font-size : 11px;
+	font-family : Verdana,Helvetica,sans-serif;
+	padding: 0;
+	margin: 0;
+	border-bottom : 1px solid #dddddd;
+}
+
+td.pct-actportlet, td.pct-actportlet2, td.pct-actportleta, td.pct-actportlet2a
+{
+	padding: 1px 5px 1px 5px;
+	font-family : Verdana,Helvetica,sans-serif;
+	font-size : 11px;
+}
+
+td.pct-actportlet a, td.pct-actportlet2 a, td.pct-actportleta a, td.pct-actportlet2a a
+{
+	color: #0464BB;
+	text-decoration: none;
+	font-size : 11px;
+	font-family : Verdana,Helvetica,sans-serif;
+}
+
+.actportlet-empty-table
+{
+	text-align: center;
+	color: #666666;
+	font-size:10px;
+	position: relative;
+	padding: 0;
+	margin: 0;
+}
+
+td.pct-actportlet-emptytablespace
+{
+	height : 70px;
+}
+
+td.pct-actportlet-emptytabletext
+{
+	text-align: center;
+	color: #666666;
+	font-family: Verdana,Helvetica,sans-serif;
+	font-size : 10px;
+}
+
+.pct-act-dark th.pct-actportlet,
+.pct-act-dark td.pct-actportlet-emptytablespace,
+.pct-act-dark td.pct-actportlet-emptytabletext
+{
+	background-color: black;
+}

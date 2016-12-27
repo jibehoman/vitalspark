@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/Sonic2013/ESB8.6/lib/xq_service.jar"/>
+	<classpathentry kind="lib" path="C:/Sonic2013/ESB8.6/lib/xq_core.jar"/>
+	<classpathentry kind="lib" path="C:/Sonic2013/ESB8.6/lib/esb_sfc.jar"/>
+	<classpathentry kind="lib" path="C:/Sonic2013/ESB8.6/lib/xq_container.jar"/>
+	<classpathentry kind="lib" path="C:/Sonic2013/MQ8.6/lib/mfcontext.jar"/>
+	<classpathentry kind="lib" path="C:/Sonic2013/MQ8.6/lib/mgmt_config.jar"/>
+	<classpathentry kind="lib" path="C:/Sonic2013/MQ8.6/lib/mgmt_client.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

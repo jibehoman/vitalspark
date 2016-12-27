@@ -1,0 +1,160 @@
+DXSI
+
+SVCM=Data Service Model
+CM=Canonical Common Model
+SRCM=Data Source Model
+
+Ref: SonicESB Developer's Guide. Chapter 10 "Getting Started With Sonic ESB and DataXtend SI"
+
+"Aurea recommends that a DataXtend SI and Sonic ESB integration uses a single, 
+canonical message format in its ESB process itineraries."
+
+Let's not make that association necessarily rigid. 
+
+"One of the major roles a data service plays in Sonic ESB integration is to transform between the
+canonical format and formats used by other systems that interact with ESB services and processes."
+
+OK, with caveat above.
+
+Question: Esther. BA complain the CM is way too big(physically the pipeline message gets large trying to accommodate it).
+I wan't to understand CM . Is it one big root element, or a set of types? Can the CM size complaint be resolved in some
+manner?  
+
+==================
+
+"Simple transformation — A data service in a process itinerary transforms the output message from the
+previous step and passes the transformed message to the next step."
+
+Let's face it, Simple Transform is weird. The technical DXSI implementation is way too much evident in the
+experience: Data Service domain type transforms into Common Model transforms into Data Source domain type.
+Data Source type is the result that is extracted by a "Return All Values" pragma.
+The data-source operation is a No-Op one-way. SVCM->CM->SRCM
+
+We have to fix this. I am going to leave the DXSI data designer experience to the DXSI team to sort out.
+However the DXSI data designer may well be from the Aurea staffing pool and writing a DXSI service for an industry standard
+model to place in the repository. Therefore, his or her experience of simple transform is one thing.
+What is more important, IMHO, to get right is the  itinerary developer experience of simple transformation.
+Currently I believe for simple transform dataSourceMessages appears explicitly in the output mapping UI. Also the type 
+of the output is a xq:parameterHolder meaning the output type is unknown at design time. It seems to me that 
+for most UCs output type should be known.
+Question: Esther. Can DXSI so better than xq:parameterHolder typing for simple transform?  
+From a itinerary perspective, I suggest that with a semantic bus,
+we never see a DXSI service step on the itinerary. Rather, when it comes to itinerary mapping screens, with type intelligence
+our system should be able fill in for the designer the DXSI simple transformation used to change types.
+This chosen transformation appears with a simple label(other transformations could be shown as a drop-down).
+The label has nothing to do with DXSI but deals with the type under transformation e.g. "SWIFT-CAT MT202 to CurrencyCode".
+The simple transformation case applies to on-ramp and off-ramp also. A 3-step adapter itinerary,
+say (Custom schema->CM), CanonicalProcess, (CM->Custom schema) folds into just a one step CanonicalProcess. Note
+to accomplish folding of the explicit on-ramp and off-ramp step we'd need to add mapping into and out of our nested
+itinerary steps. I do not know the full feasibility of this. Note also single or three step adapter itineraries
+(for on-ramps and off-ramp) is still kind of ugly. Maybe tooling could assist here in their generation or hiding. 
+
+Rhetorical Question: What are the advantages of fully engaging DXSI for simple-transform:
+
+i. Centralized type management
+ii. Separation of concerns - type intelligence is developed in a centralized place by a type expert(DXSI designer)
+iii. Optimizations possible - e.g. drop XForm service(for starters). We need to make XForm a bad-practice. Particularly
+since the Transform service is now available(this allows itinerary developer to manage type transforms for ad-hoc simple cases).
+iv. Esther, what else is good ? - does one-way-transform still permit semantic validation? etc
+ 
+
+===================== 
+"Request/response — A data service acts as an adapter between the caller and the target of a request/response operation."
+
+(request)SVCM->CM->SRCM(response) 
+
+Questions: 
+1. Esther, The client caller adaptor use case seems to illustrate a use case where the client request(SVCM type) is
+adapted to a SRCM type; a request is made to the DataSource and the response is returned. Whereas the client request
+is adapted the response is not. That doesn't make sense? Am I understanding this UC?
+2. Esther, is this on-ramp UC? It seems like on ramp should be an on ramp-itinerary(Adapter process) with a "single-step transformation"
+(SVCM->CM)followed by a nested call to the target process. 
+
+"In either case the adaptor is accessed as an ESB address and is decoupled from other components in the system."
+
+This is critical, it says through an ESB address we have adaptor location transparency.
+
+Questions:
+1. Esther, are there many one-step itineraries that implement these ESB address wrapped adaptors? Actually it is probably
+three-steps(adapt to CM, call canonical process, adapt from CM)
+ 
+I have a general problem with this - the Sonic calls DXSI, DXSI calls Sonic, Sonic calls DXSI etc etc is way too obvious here.
+We want to hide this as much as possible to the designer. In the context of Sonic ESB as datasources, I'd argue that the
+ONLY thing a DXSI designer can use as data-sources are "Services" or "Processes". The services are on the bus OR 
+pulled into the bus from a repository. The bus we are talking about here is a System Integration/Staging bus. 
+There's a subtle difference here - DXSI developers are not developing ESB itineraries for their Data sources, they are
+already available to him in a SIT bus or repository.
+
+The services should have rich typed interfaces(ESBDL). DXSI should not have to independently describe the Sonic service .xsds
+as it does currently.
+
+If we make this changes this seems like an improvement. 
+
+Two areas we will need to look at and do work on:
+
+i.Although we may be eliminating the Sonic calls DXSI, DXSI calls Sonic, Sonic calls DXSI experience, we need to ensure that 
+Actional does not render the underlying implementation in its visualization. As it stands currently I'm sure
+the underlying implementation will re-appear under Actional.
+
+ii. Type ESB Integration services are going to need a bit of "magic" put into the ESB Client API. Currently the ESB Client API
+used by DXSI permits ESB exchanges to occur on a message part/header oriented basis. We need to allow operations and
+parameters to appear in the client API. I think this do-able (we already generate itineraries internally in the APIs) we
+just need to add some magic to them so that operation parameters can get through to the service.
+This area needs further thought. Also the exterior ESB client API(used by DXSI Tester needs accommodation - ClientProxy
+service needs magic added).
+ 
+
+ 
+ 
+ 
+=========================
+
+"Semantic mediation — A data service accesses data sources on behalf of an ESB process, 
+determining which data source(s) to access for each invocation and and/or aggregating
+the data source responses.
+
+The term “semantic mediation” refers to work the data service does to determine which data source(s) 
+to access and to aggregate data returned from data sources."
+
+Question: Esther, I'd like to know more. How "dynamic" is the data-sources selection? Is there
+a fixed  size? 
+
+Action: we should prototype/validate a DXSI replacement for Sonic SplitJoin's replacement.
+
+Rhetorical Question: What are the advantages of fully engaging DXSI for SJ replacement:
+i.,ii.,iii.,iv. As for simple transformation
+v. DXSI will not suffer from single threaded performance issue that SJ currently suffers when operating in
+intra-container-mode.
+
+
+Possible Actions:
+1. Permit DXSI to be the underlying transport mechanism of services that is it strong at:
+i. SJ
+ii. DBService
+iii. EJBs?
+In all cases the underlying the DXSI nature of implementation is hidden from the developer: that is : I see a DBService
+or a SJ Service
+2. Fix simple-transform UCs - covers on-ramp and off-ramp, and within-bus transformations.
+i. Lower priority is the DXSI Designer, Return-All-Values experience
+ii. Higher priority is itinerary developer seeing DataSourceMessages etc, and
+iii. Going all out: dissolve DXSI Service from the itinerary canvas(but show the DXSI intelligence in the itinerary
+mapping panels)
+3. Try and hide the DXSI calls Sonic as a Data Service aspect - but we like the location transparency aspect! 
+i. In DXSI data source selection make EVERYTHING a Service or Process(even a DBService implemented itself by DXSI
+is a bus Service: Advantages: consistency, location transparency
+ii. Consume strong service typing(ESBDL) versus copying schemas - changes to DXSI needed
+iii Consume strong service typing(ESBDL) versus copying schemas - changes to ESB Client API and ClientProxy(DXSI Tester) needed
+iv. Actional cannot undo our cleaner picture
+4. In Sonic deprecate DBService, SJ.
+5. Get Adaptris involved in strong service typing for many of its adaptors(where reasonable)
+6. Get Sonic Connect strong service typing(proper way)
+
+
+
+
+RULE NUMBER 1: All Data Sources appear as "Services" or "Processes"
+RULE NUMBER 2: Dissolve simple xform
+RULE NUMBER 3: Aggregator Service... concept - is DXSI is SJ is DXSI aggregate AGGREGATOR must handle interfaces that re-plug...
+
+
+DOES DXSI DO ADAPTRIS?...

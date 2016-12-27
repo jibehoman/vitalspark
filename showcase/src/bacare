@@ -1,0 +1,172 @@
+Listen to BA messages Meeting 24 June Austin TX:
+
+"AUREA UPDATES"
+
+"Strategic product direction & roadmap (Neil’s views)
+- Future releases planned, backwards compatibility
+- use of BPM and process engines, where next for Sonic? 
+- integration of business logic processing capability (OSGI or similar)
+- data and the semantic bus, what is going on?
+- closer integration of the toolset, what progress to date?"
+
+We can talk about "where next for Sonic?", "and semantic bus and Sonic". Re "Toolset": in part needs to hear from us that 
+we are going all out for ease-of-use Web UIs. This DOES NOT MEAN WE CONVERT Sonic Management Console to Web!!!!
+Keep SMC as "regedit for Sonic"; Web UI MUST radically cut down choices that are irrelevant(how many MF components per
+container etc).  
+ 
+ 
+ "2. What are other Aurea customers doing"
+ 
+ - Disney, Cerner? We MUST internally view BA as strategic for our use cases - there are compelling drivers for both of us
+ to make this work(see later) 
+ 
+"3. How much of a focus for Aurea is REST? 
+- how do we create an agile platform for mobile etc?
+- Sonic seen as too complex
+- Time to market slow
+- How do we maintain separation of concerns? 
+Should we go for multiple domains for example?
+- currently the AI exposed URLs are not suitable for REST and we need to add an Apache re-write layer – would be good
+if we could control the exposed AI URL and remove the re-write complexity.  There is a CR on this"
+
+ 
+ "REST, Agile, mobile" - lot's of stuff here, we need to find out these answers with priorities: 
+ 
+ Do you mean:
+ 
+ - UIs tools/builders for mobile?(Savvion more likely has)
+ - Transport mechanics REST/JSON/AJAX
+ - Deeper definition of connection between REST in the pure architectural sense, and ESB.
+   - For example, what is a RESTful itinerary?
+   - Is there a take-away for HATEOS(Hytertext As the Engine of State Transfer) and ESB?
+   - Are we looking for a association of URLs to itineraries(one such association might be for example: itinerary = REST resource
+     hierarchy level) 
+   - Is URL re-write an issue? (and I mean embedded-references)?
+ - Can BA share us their use cases here?   
+ - Is there something more compelling? e.g. mobile = GPS/or wireless location awareness, music, photos. 
+ - Do we want devices to post attachments, photos and does itinerary need special accommodations for this?
+ - Follow on, what are the the MIME multi-part constraints of itinerary - deep nested, recursive is not there currently for example  
+ - Does BA want to capitalize on location awareness, and, for example, dynamically rewrite application logic
+   based on it. Any compelling use cases from BA will help here. Is Sonic Dynamic Itinerary capability
+   a thing we should go after(and we're are NOT that far away from this - BA should be told that ESB itinerary engine was
+   rewritten in 8.0 and, internally, dynamic routing slips are now much more programmable)? 
+   IMHO, if we can get use cases(and by the very nature of there business, BA has to be prime candidate)
+   dynamic routing slip gives SonicESB free and clear differentiation from everything else. If this can get play we need to
+   look at protecting out IP here(patents etc).
+    
+ 
+  
+  - "Sonic complex, time to market long"
+  
+  Answer:  Repository will help on both fronts. We have to make more stuff readily available. Until repository that could only HAVE 
+  come OOB or via the field. 
+  
+  For example: on the REST front - a universal REST access service(currently prototyped) makes EVERY process REST accessible. 
+  Without that, for sure, Sonic Connect or AI enablement IS complex.
+
+"- How do we maintain separation of concerns? 
+Should we go for multiple domains for example?"
+
+  Question: What do you mean? Is this about HATEOS?
+
+"- currently the AI exposed URLs are not suitable for REST and we need to add an Apache re-write layer – would be good
+if we could control the exposed AI URL and remove the re-write complexity.  There is a CR on this"
+
+Answer: These are specific complaints about AI and REST. We need an Actional AI engineer to answer.  
+
+On the other hand it would help us get a BA perspective on REST for our entire REST support strategy
+(We have 2 mechanisms: AI and SonicConnect):
+ - What are BA views on WADL? 
+ - Are the WADLs under BA's control or mandated by agencies elsewhere?
+ - Would they use WADL if they didn't have to? Would a URL template approach be more suitable?
+ - Are there preferences between the use of path parameters versus query parameters? Do they use matrix parameters? etc.
+ - Are there additional security aspects that AI is adding with REST? 
+ - Is the AMS/AI visibility adequate for REST?
+ - Was Sonic Connect ever discussed?(I can see why BA would want AI because of its use elsewhere)
+ 
+"Recap of where we’ve got to with CM and MUSE
+- Architecture, Light n Dark
+- VM utilisation
+- Hardware
+- Revised plans ?" 
+ 
+  
+ "Light n Dark" 
+ Ans: Great! sounds better than "Dark and Stormy"! Seriously, is this, standby vs live? Are there other shades? e.g. 
+ "in the shop" - "health-performance-stress-test", etc.
+ 
+ "Hardware"
+ Ans: We should get maybe Paul Meadow's sitting in - he knows more about this e.g. 64bit vs 32bit etc etc
+
+ 
+ "2. Demo of BA’s APB tool. 
+What we need from Aurea to allow refinement of the automated build process"
+
+Ans: Might need Tim De Borger, although Mitchell can probably also answer here
+Q: Can we have rights to some of this code. The AI configurator(do they have a AMS one)
+is I believe missing from our store - maybe AI folks can answer.
+
+ 
+ DISCUSSION
+"1. Performance tuning and optimization. 
+- Lots of issues for me with this, want more automation, more auto tuning, sizing of CM a nightmare
+- Need to be able to size more effectively for different classes of environments
+- Metrics need to be more readily available without impacting management components"
+ 
+Ans: Need Paul Meadows.
+Q's: How much of this is the DXSI UC? Tuning - i.e. Rules of Thumb automatically applied? 
+Return Question:  How are you performance testing? Do you think that testing(including performance testing) as a service
+would interest you?
+
+"2. Thoughts on our large scale SIP estate
+- could we reduce the overall number of environments with respect to development / test etc ...
+- how can we manage at this scale"
+    
+Return Question: How does stage-management or tools in that area fit with BA? How does stage and test management fit with BA?
+
+"3. operational tools 
+- SMC/SEM work poorly over long distances and give different answers
+Ans: I need Paul Meadows/And or Bruce
+    
+"4.Aurea’s Support offering 
+- BA feedback particularly on availability and reporting"
+
+Ans: No comment.
+ 
+"5. Big data & logging
+- Aurea’s thoughts on opportunities / exploitation
+- AMS capabilities"
+Ans: Need Actional engineering to be present
+
+
+
+"6. Aurea Resources
+- Still feels that there are far too few skilled Aurea people available"
+Ans: No comment.
+
+"7. Dependency analysis
+- Any suggestions on how we can automatically track run time dependencies and relate back to services in our repository"
+Ans: What is their repo? We may want to consider this as a requirement gathering for our repo story in addition to providing
+specific advise. For example: "impact analysis" of taking a new service? I have to assume that
+BA is well aware of our esb admin deployment commands. Be interesting to know where they see short-falls.
+We should include talk about Sonic/DXSI and semantic bus how for example impact analysis needs to filter back to itinerary impact.
+We could give more of our experience "vision" here - e.g. the update/services experiences: try it! what is the impact? etc
+narratives - this should appear in road-map/vision...
+
+"8. Best practices and procedures wrt operating the Aurea products and tools"
+Ans: No general comments, Tim D B, or Mitchell may be more suited. I may be able to answer/give opinion on specific questions. 
+
+WE WANT TO ADD TO THE AGENDA IF NOT COVERED ELSEWHERE:
+    
+Dynamic Itineraries
+Semantic Bus(DXSI/Sonic)
+What is BA doing with Sonic/DXSI?(fyi this topic is going to come up internally)
+
+============== END OF BA MEETING STUFF ================
+
+Lessons from BA - TCS(Tata):
+If we do hot stuff we need IP protection/patents on dynamic itinerary, semantic bus
+
+Can we "make a deal" with TCS - e.g. you are in deep shit, we have technology(dynamic routing slip) that you need to fix it,
+give us some "airline" IP or $$$.
+

@@ -1,0 +1,63 @@
+	 Created By : Ops Central Access (Thu Mar 27 20:45:37 GMT 2014) 
+Message :Created By: Sebastien Lacroix, 
+Hi Aouali, 
+
+I was hoping (not so much actually) this "DO_NOT_USE" could be a secret special Logical Host that would enable a cleaner type of update limited
+ to what is explicitly defined in the Model without some default values or acceptors that make sense only when a broker is created from scratch. 
+ Now I realize there is a misunderstanding. 
+Background: 
+On the fields we have to manage deployments with multiple layers with different sets of models: 
+0) Layer0: a first set of models for the transport layer to create or update Brokers for general setting like: 
+-security 
+-acceptors 
+-DRA 
+-tuning 
+-BUT NOT Queues, for reason I will explain further. 
+
+1) Layer1: On top of Layer0 we deploy other models that define ESB Service Types
+ and common ESB connections. 
+
+[I skip a few specific BA layers in the middle] 
+
+3) Layer3: on top of layer1, we can at last deploy other models that define: 
+-ESB Services instances 
+-ESB Processes 
+-ESB Containers 
+-ESB EndPoints => and here comes the problem: these achieve the binding between
+ ESB and MQ and can therefore require the creation of static Queues in clusters 
+ or broker (when exclusive). 
+
+
+Problem: it is not possible to manage these queues in a Layer0 Model because 
+its life cycle cannot be bound to the life cycle of a service. 
+Therefore we have to be able to define these queues in Layer3 Models. 
+
+At BA, Layer0 consists in about 30 Models, and Layer3 is a matter of hundreds 
+with hundreds of developers that can hit the same Cluster of brokers.
+ At other customers, small teams can manage to synch these two layers manually
+ , but it is absolutely not possible to impose this kind of process to a large 
+ enterprise like BA. 
+
+
+In the 7.6 past, BA could somehow work around this kind of problem with a dummy 
+logical host in their model, and call a sophisticated plug-in from a CustomAnt 
+that could parse the Model.xml and the Tuning.xml and create queues in the DS
+ with management APIs. In other words, extend SDM to do what it was not capable 
+ of doing. 
+Now, this plug-in causes many problems and BA legitimately wants to get rid off it
+ (plus we cannot afford to maintain or upgrade it anymore), especially because 
+ people do believe the current SDM behavior is a defect that should be addressed.
+  Also, the number of services and brokers has grown significantly, so people can 
+  no longer accommodate with such a work around. 
+
+At last, we are so busy at BA that this problem did not catch our attention earlier, 
+but the impact is already important for the numerous development teams at stake.
+ In short, it is a MUSE show stopper. Therefore we have decided to escalate this 
+ problem to obtain a fix as soon as possible. 
+Mitchell Horowitz will drive the communication with Product Management. 
+
+Thanks 
+/SL
+
+APPARENTLY THOMAS MENTIONED A DO_NO_USE LOGICAL HOST APPROACH TO QUEUE
+UPDATES!

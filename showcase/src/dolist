@@ -1,0 +1,30 @@
+1. Pegasystems(done)
+2. Experience Adaptris(Esther/Tim DB reports apparently not a good experience)
+3. Event Monitor(Bruce reports apparently not a big deal) 
+4. Need to validate ESBDL Services paradigm - also will the field choke on this?
+   Savvion adaptor for ESB may be best thing to look at
+5. MOM services message mapping UC(Siraj)
+6. Children's Book:The Kangaroo, the Beanstalk, the City,  and Siri(10 things you need to separate out to do SOA)
+7. Sonic historical investments are about to come true("the eggs are about to hatch") everything has to be revisited.  
+7.1. Cache(not a lot changes here - caching proposal of Thomas I have issues with for me because of the
+extra panel in the itinerary mapping UI - sure it's optional - but it is a bit too in
+your face. Cache feels like a concern in it's own right that needs another
+separation story).
+7.2  FS-less ESB
+7.3. POJOS Again(revisited - convergence with Silvio's opinion)
+
+8. Dynamic itinerary for BA
+9. BA Cache Service !
+10. What is good about Savvion - 
+  - scenarios(but it's a little different because of the human pause time - tha's more
+  about workflow productivity than SOA/automated BP network performance) 
+  - live capture replay
+  - in general human interaction(UI) and workflow (for which centralized process state is needed)
+  - what is an ideal "tight" Sonic/Savvion integration look like
+  - biz rules
+  - UI expertize
+11. We should protect our IP look at patents for "routing slip" - I'm sure thats gone, more important dynamic itinerary
+and sem bus.
+12. Actions SMART - Specific, Measurable, Achievable(Actionable(not Actional funny that is the message!)), Relevant, Time-bound
+13. Making SC "true blue"
+ 

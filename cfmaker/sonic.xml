@@ -1,0 +1,123 @@
+<Template>
+  <General>
+    <!-- parameter default -->
+    <Owner>peaston@aurea.com</Owner>
+
+    <!-- db resource owner tag, Amazon fusses over @ -->
+    <DbOwner>peaston</DbOwner>
+
+    <Architecture>i386</Architecture>
+    <ArchitectureJVM>/usr/lib/jvm/jre-1.7.0-openjdk</ArchitectureJVM>
+    <AMI>ami-730c631a</AMI>
+    <Linux>RHEL</Linux>
+<!-- Amazon Linuxs has very poor desktop support so comment out... 
+    <Linux>Amazon</Linux>
+    <AMI>ami-a0cd60c9</AMI>
+-->
+    <InstanceType>m1.medium</InstanceType>
+
+    <!-- or x86_64 
+    <Architecture>x86_64</Architecture>
+    <ArchitectureJVM>=/usr/lib/jvm/jre-1.7.0-openjdk.x86_64</ArchitectureJVM>
+    <Linux>RHEL</Linux>
+    <AMI>ami-7d0c6314</AMI>
+--><!-- Amazon Linux 
+    <Linux>Amazon</Linux>
+    <AMI>ami-aecd60c7</AMI>
+--><!--
+    <InstanceType>m1.large</InstanceType>
+-->
+
+    <!-- parameter default -->
+    <Key>AureaSonic</Key>
+
+    <!-- parameter default -->
+    <AWSAccessKey>AKIAIDC2ASIVA7AY4ZOA</AWSAccessKey>
+    <AWSSecretKey>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</AWSSecretKey>
+
+    <!-- all AZs are in one region(for now) -->
+    <AvailabilityZones>us-east-1a,us-east-1b,us-east-1c</AvailabilityZones>
+  </General>
+
+  <Sonic>
+    <!-- versions -->
+    <Version>
+        <SonicInstall>
+           <Major.Minor>2013</Major.Minor>
+           <Subdirectory.Major.Minor>8.6</Subdirectory.Major.Minor>
+        </SonicInstall>
+        <LauncherInstall>
+           <Major.Minor>2013</Major.Minor>
+        </LauncherInstall>
+<!--
+        <SonicInstall>
+           <Major.Minor>8.6</Major.Minor>
+           <Build>306</Build>
+        </SonicInstall>
+        <LauncherInstall>
+           <Major.Minor>8.6</Major.Minor>
+           <Build>287</Build>
+        </LauncherInstall>
+-->
+    </Version>
+    <Model>BA</Model>
+
+    <!-- number of physical instances -->
+    <NumMachines>2</NumMachines>
+    
+    <!-- Sonic Virtual Private Cloud -->
+    <Vpc>
+        <!-- Style options:
+ 
+             "hosted" - deploy in existing Virtual Private Cloud
+             "publicandprivatesubnets" - deploy in a dedicated Virtual Private
+                                         cloud with public and private subnets
+             "publicsubnetsonly" - deploy in a dedicated Virtual Private cloud
+                                   with public subnets only. A simpler setup
+                                   then "publicandprivatesubnets" as there are
+                                   neither NAT devices nor Bastion hosts
+                                   required. Sonic instances are assigned
+                                   public IPAddresses, these are volatile
+                                   across restarts, but good enough to establish
+                                   outbound TCP connections to the internet.
+                                   May be considered less secure than
+                                   "publicandprivatesubnets".
+        -->
+        <!-- Deploy Sonic into the pre-existing Aurea VPC -->
+        <Style>hosted</Style>
+ 
+ 
+        <!-- hostVPC applies to "hosted" style only -->
+        <hostVPC>aureadevelopment</hostVPC>
+ 
+        <!-- Sonic instance AZ spread  -->
+        <NumAvailabilityZones>1</NumAvailabilityZones>
+ 
+    </Vpc>
+  </Sonic>
+   
+  <!-- Describes pre-existing Virtual Private Clouds, for deployment of
+       Sonic in an existing VPC. Supports strategy to deploy IBPass in
+       a shared cloud environment for cost containment. Applies when
+       &lt;Vpn&gt;&lt;Style&gt;  element is "hosted".
+   -->
+
+  <HostClouds>
+    <!-- describes Aurea developer Virtual Private Cloud -->
+    <HostCloud>
+    <Id>aureadevelopment</Id>
+    <Subnets>
+    <Public>subnet-b24330d8</Public>
+    <Private>subnet-85b1d3ef</Private>
+    </Subnets>
+    <RDS>
+      <SubnetGroup>devproduction</SubnetGroup>
+    </RDS>
+    <SecurityGroups>
+      <DefaultInterior>sg-85d43fea</DefaultInterior>
+      <HTTPPublic>sg-9d7082f2</HTTPPublic>
+      <HTTPSPublic>sg-977082f8</HTTPSPublic>
+    </SecurityGroups>
+  </HostCloud>
+  </HostClouds>
+</Template>

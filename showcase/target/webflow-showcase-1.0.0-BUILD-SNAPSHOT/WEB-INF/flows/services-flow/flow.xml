@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/webflow 
+		http://www.springframework.org/schema/webflow/spring-webflow.xsd">
+
+     <var name="misc" class="org.springframework.webflow.samples.aurea.FlowStateHolder"/>
+     <var name="domain" class="org.springframework.webflow.samples.aurea.Domain"/>
+     <on-start>
+ 		<evaluate expression="servicesService.createServices()" result="flowScope.services" />
+	</on-start>
+ 	<view-state id="applicationType" view="servicesFlow/applicationType" model="services" >
+		<binder>
+			<binding property="applicationType" />
+		</binder>
+		<on-render>
+			<render fragments="body" />
+		</on-render>
+		<transition on="next" to="productionDomain" bind="true"/> 
+		<transition on="cancel" to="cancel"/>
+	</view-state>
+	<view-state id="productionDomain" view="servicesFlow/productionDomain"  model="services">
+		<binder>
+			<binding property="domainName" />
+			<binding property="userName" />
+			<binding property="password" />
+			<binding property="url" />			
+		</binder>
+		<transition on="previous" to="applicationType"/>
+		<transition on="next" to="servicesModel"/> 
+		<transition on="cancel" to="cancel"/>
+	</view-state>	
+    <view-state id="servicesModel" view="servicesFlow/servicesModel" model="services" >
+		<binder>
+			<binding property="softwareFeatures" />
+		</binder>
+ 		<transition on="previous" to="productionDomain"/>
+		<transition on="next" to="specifyDeploymentParameters"/>
+		<transition on="cancel" to="cancel"/>
+	</view-state>
+    <view-state id="specifyDeploymentParameters" view="servicesFlow/specifyDeploymentParameters" model="services" >
+		<binder>
+			<binding property="restBaseURI" />
+		</binder>
+ 		<transition on="previous" to="servicesModel"/>
+		<transition on="next" to="reviewApplySDMUpdate"/>
+		<transition on="cancel" to="cancel"/>
+	</view-state>
+	<view-state id="reviewApplySDMUpdate" view="servicesFlow/reviewApplySDMUpdate" model="services" >
+		<binder>
+			<binding property="model" />
+		</binder>
+ 		<transition on="previous" to="specifyDeploymentParameters"/>
+		<transition on="next" to="reviewApplySDMTopologyEnvironmentSettings"/>
+		<transition on="cancel" to="cancel"/>
+	</view-state>
+	<view-state id="reviewApplySDMTopologyEnvironmentSettings" view="servicesFlow/reviewApplySDMTopologyEnvironmentSettings" model="services" >
+		<binder>
+			<binding property="parameters" />
+		</binder>
+ 		<transition on="previous" to="reviewApplySDMUpdate"/>
+		<transition on="next" to="reviewApplySDMTuningSettings"/>
+		<transition on="cancel" to="cancel"/>
+	</view-state>
+	<view-state id="reviewApplySDMTuningSettings" view="servicesFlow/reviewApplySDMTuningSettings" model="services" >
+		<binder>
+			<binding property="tuning" />
+		</binder>
+ 		<transition on="previous" to="reviewApplySDMTopologyEnvironmentSettings"/>
+		<transition on="next" to="finalReview"/>
+		<transition on="cancel" to="cancel"/>
+	</view-state>
+	<view-state id="finalReview" view="servicesFlow/finalReview" model="services" >
+		<binder>
+			<binding property="serviceParameters" />
+		</binder>
+ 		<transition on="previous" to="reviewApplySDMTuningSettings"/>
+		<transition on="finish" to="updateDomain"/>
+		<transition on="cancel" to="cancel"/>
+		<transition on="save" to="finalReview"/>
+	</view-state>
+	<action-state id="updateDomain">
+		<evaluate expression="domain.setServices(services)" />
+		<evaluate expression="domain.update()" />
+		<transition on="no" to="failure" />
+		<transition on="yes" to="success" />
+	</action-state>
+    <end-state id="failure" view="servicesFlow/failure"/>
+    <end-state id="success" view="servicesFlow/success"/>
+	<end-state id="cancel" view="servicesFlow/cancel"/>
+
+</flow>

@@ -1,0 +1,7 @@
+1. zap EsbStandalone containers from .xar 
+2. Regular REST(sans traceroute) *1
+3. Paul dry run
+4. real probe bypass - real drilling of flow control *3
+5. DMQ for exhausted probe/RME?(TTL on probe) *3
+6. Dyn Itinerary version *2
+

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ParameterSets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="file:///C:/Sonic8.6/SDM8.6/schemas/Tuning.xsd">
+  <!-- Activator140610:08:49:30_DefaultTuning -->
+  <ESBContainerParameters id="_default">
+    <Resources><Classpath>sonicfs:///System/SonicESB/8.6/lib/esbtrace-interceptor.jar</Classpath>
+    </Resources>
+    <JmsDefaultConnection>@JmsDefaultConnection@</JmsDefaultConnection>
+    <ActionalConfig>
+      <InterceptorEnabled>@ActionalEnabled@</InterceptorEnabled>
+      <PayloadReportingEnabled>@ActionalEnabled@</PayloadReportingEnabled>
+    </ActionalConfig>
+  </ESBContainerParameters>
+</ParameterSets>

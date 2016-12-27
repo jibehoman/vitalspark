@@ -1,0 +1,15 @@
+Generic Sonic Cloudformation Template Producer
+
+To run, execute:
+
+ant -Ddeployment.xml=<sonic deployment xml>
+
+e.g. The following command produces the Cloudformation template,
+sonic.xml.template.
+
+ant -Ddeployment.xml=sonic.xml
+
+
+The stylesheet cf.xsl controls template production based on the deployment xml.
+
+Read the deployment xml for a full description on each template and how to test.
