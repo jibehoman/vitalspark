@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sid xmlns="http://www.sonicsw.com/sonicesb/sid"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	  <service>
+		    <properties>
+			      <name>Service Config</name>
+			      <type>esbsvc</type>			
+			      <namespace>http://www.sonicsw.com/sonicesb/sid</namespace>
+		    </properties>
+
+		    <interface name="ServiceConfigInterface">
+			      <operation name="Invoke">
+				        <input name="Input">
+					          <part binding-info="name" binding-name="Part" name="DefaultInput"
+                     namespace="http://www.w3.org/2001/XMLSchema"
+                     type="xsd:anyType"/>
+				        </input>
+				        <output name="Output">
+					          <part binding-info="name" binding-name="Part" name="DefaultOutput"
+                     namespace="http://www.w3.org/2001/XMLSchema"
+                     type="xsd:anyType"/>
+				        </output>
+			      </operation>
+		    </interface>
+	  </service>
+   <service-config xmlns="">
+      <current-name>BATypedService</current-name>
+      <entry-endpoint-name>BasicTypedService.Entry</entry-endpoint-name>
+      <current-container>dev_ESBTest</current-container>
+      <number-of-listeners>1</number-of-listeners>
+      <last-uploaded-name>BATypedService</last-uploaded-name>
+      <uploaded-on-containers>
+         <container>dev_ESBTest</container>
+      </uploaded-on-containers>
+      <startup-priority-level>0</startup-priority-level>
+      <concurrent-calls>0</concurrent-calls>
+   </service-config>
+</sid>

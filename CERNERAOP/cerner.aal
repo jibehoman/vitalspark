@@ -1,0 +1,35 @@
+alias String                     for class java.lang.String
+alias Thread                     for class java.lang.Thread
+alias IMgram                     for class  progress.message.msg.IMgram
+alias BaseConnection             for class progress.message.zclient.BaseConnection
+instanceof progress.message.zclient.xonce.MgramTraceCallback
+{
+
+       wrap dumpStack(String, BaseConnection, IMgram) {
+        try {
+            System.out.println("Busting socket!");
+            $2.getSocket().close();
+        }
+        catch (Exception ex) {
+            System.out.println(ex);
+        }
+       }
+       wrap pass(String, BaseConnection, IMgram) {
+         System.out.println("Discarding Mgram!");
+         $3.setType(progress.message.msg.MgramConstants.GR_CONVERT_TYPE);
+       }
+
+       method public void sleep(String, BaseConnection, IMgram) {
+            boolean twasInterrupted;
+            try {
+                System.out.println("Sleeping 30 msec!");
+                Thread.sleep(30000);
+            }
+            catch (InterruptedException ex) {
+                twasInterrupted = true;
+            }
+            if (twasInterrupted)
+              Thread.currentThread().interrupt();
+       }
+}
+

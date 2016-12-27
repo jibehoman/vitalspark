@@ -1,0 +1,19 @@
+/* Copyright (c) 2002-2015, Aurea Software */
+
+
+
+.scrollbarmenu-no-icon 
+{ 
+	display: none; 
+}
+
+.scrollbarmenu-no-vseparator 
+{
+	background: #f0f0f0 url(../images/default/menu/menu.gif) repeat-y;
+	background-position: -40px 0px;
+}
+
+.scrollbarmenu-header-item
+{
+	background: #dfd9e8;
+}

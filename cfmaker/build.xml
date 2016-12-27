@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="cf builder" default="build" basedir=".">
+    <description>
+        Compile CF Templates
+    </description>
+
+    <!-- =================================================================== -->
+    <!-- Site-specific Customization and Overrides                           -->
+    <!-- =================================================================== -->
+
+    <!-- Properties strictly for test purposes: -->
+    <property file="${basedir}/build.properties"/>
+
+    <!-- =================================================================== -->
+    <!-- Core portability settings - standard product libraries  -->
+    <!-- Command line overridable to installed lib locations -->
+    <!-- =================================================================== -->
+    
+    
+    <property name="build.dir" value="${basedir}"/>
+    <propertyset id="cmdline.propset">
+        <propertyref builtin="commandline"/>
+    </propertyset>
+
+    <macrodef name="XSLT">
+      <attribute name="source" />
+      <attribute name="out" />
+      <attribute name="stylesheet" />
+      <element name="extraargs"/>
+      <sequential>
+      <java fork="true" classname="net.sf.saxon.Transform">
+         <classpath refid="runtest.classpath"/>
+         <arg value="-s"/>
+         <arg value="@{source}"/>
+         <arg value="-o"/>
+         <arg value="@{out}"/>
+         <arg value="@{stylesheet}"/>
+         <extraargs/>
+      </java>
+      </sequential>
+    </macrodef>
+
+    <macrodef name="MakeCFTemplate">
+      <sequential>
+	<XSLT source="${deployment.xml}" out="${build.dir}/${deployment.xml}.template" stylesheet="cf.xsl">
+           <extraargs>
+            <arg value="scenarioid=${last.filename.part.prefix}" />
+           </extraargs>
+        </XSLT>
+      </sequential>
+    </macrodef>
+
+
+    <!-- =================================================================== -->
+    <!-- Path Declarations                                                   -->
+    <!-- =================================================================== -->
+
+    <path id="build.classpath">
+        <fileset dir="${basedir}/lib">
+          <include name="*.jar" />
+        </fileset>
+    </path>
+
+    <path id="runtest.classpath">
+        <path refid="build.classpath"/>
+    </path>
+
+    <!-- =================================================================== -->
+    <!-- Build                                                               -->
+    <!-- =================================================================== -->
+    <target name="build">
+	<MakeCFTemplate/>
+    </target>
+
+</project>

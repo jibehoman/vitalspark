@@ -1,0 +1,30 @@
+/* Copyright (c) 2002-2015, Aurea Software */
+
+
+
+
+
+.statisticsheader
+{
+	background-color: #E0E0F0;
+	color:white;
+	font-weight:bold;
+}
+
+
+
+.breakdownheader, .innerbreakdownheader
+{
+	font-size: 60%;
+	font-weight: bold;
+}
+
+.breakdownheader, .identheader
+{
+	background-color: white;
+	border-bottom: solid 2px #adadcd;
+}
+
+a.subnodelink:link	{color: #0000FF; text-decoration: none; }
+a.subnodelink:visited	{color: #0000FF; text-decoration: none; }
+a.subnodelink:hover	{color: #0000FF; text-decoration: underline; font-weight:bold; }

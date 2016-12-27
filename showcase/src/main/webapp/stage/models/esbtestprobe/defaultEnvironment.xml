@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Environment>
+  <!-- Activator140610:08:49:30_Distillate_Parameters -->
+  <Id>default</Id>
+  <Machines>
+    <Machine>
+      <Id>localhost</Id>
+      <LogicalHosts>
+        <LogicalHost>dshost</LogicalHost>
+        <LogicalHost>esb1host</LogicalHost>
+      </LogicalHosts>
+    </Machine>
+  </Machines>
+  <Settings/>
+  <Parameters>
+    <Parameter>
+      <Id>@DomainName@</Id>
+      <Value>Domain1</Value>
+    </Parameter>
+    <Parameter>
+      <Id>@AdministratorUser@</Id>
+      <Value>Administrator</Value>
+    </Parameter>
+    <Parameter>
+      <Id>@AdministratorPassword@</Id>
+      <Value>Administrator</Value>
+    </Parameter>
+    <Parameter>
+      <Id>@PrimaryManagementPort@</Id>
+      <Value>2506</Value>
+    </Parameter>
+    <Parameter>
+      <Id>@ESBLicenseKey@</Id>
+      <Value>hjvwgkqjwt8aan3</Value>
+    </Parameter>
+    <Parameter>
+      <Id>@ActionalEnabled@</Id>
+      <Value>true</Value>
+    </Parameter>
+    <Parameter>
+      <Id>@JmsDefaultConnection@</Id>
+      <Value>StandardConnection</Value>
+    </Parameter>
+    <Parameter>
+      <Id>@prop.ConnectFaultHandling.properties.Resource.RESTProcess.sonic.resourceUri@</Id>
+      <Value>/Sonic</Value>
+    </Parameter>
+    <Parameter>
+      <Id>@prop.ConnectFaultHandling.properties.Resource.RESTProcess.sonic.baseUrl@</Id>
+      <Value>http://localhost:5700</Value>
+    </Parameter>
+  </Parameters>
+</Environment>
+	   

@@ -1,0 +1,67 @@
+# List of thread names to be recognised and grouped by the
+# AnalyseThreads utility.
+#
+# If a thread's name starts with one of the strings listed below, it
+# will be matched with other threads whose names have the same prefix
+# and whose normalised stacks match.
+#
+# In effect, the information below is used to identify the portion of
+# a thread's name that it's valid to use to group threads.
+#
+# Where there's potential ambiguity, the longer prefix should appear
+# first in this list, i.e. if the list containers MyWorkerThreads and
+# MyWorkerThread, then MyWorkerThreads should appear first, otherwise
+# a thread named 'MyWorkerThreads 1' would be matched against
+# 'MyWorkerThread', not 'MyWorkerThreads'.
+#
+# The entries below can be placed in double quotes if trailing
+# white-space is important (e.g. "MyThread " - these quotes are
+# stripped when this file is parsed, but whitespace with in the
+# quotes is preserved).
+
+# Sonic threads
+AgentSender
+AgentListener
+ClientSender
+ClientListener
+ReplicationSender
+ReplicationListener
+DRAWorkerThread
+IB Connect Thread
+Service Maintainer
+OffloadedMsgRestorer
+MsgRestorer
+Task Runner
+DispatchThread
+HttpDirectResponseInfoThread
+HttpDispatchThread
+Sonic HTTP Server
+SonicHttpServer
+SonicHttpsServer
+RMDispatchThread
+TxThread RequestThread
+SessionMessageProcessor
+JMS Session Delivery Thread
+Container State Poll Thread
+Container State Poller
+Notification Subscription Renewer
+Runtime configuration updater
+Acceptor ServerSocket
+Ping Thread
+Channel Switch Handler
+https://
+http://
+tcp://
+ssl://
+
+# Mgmt threads
+Durable Connection
+CloseHandler Thread
+
+
+# JVM threads
+Concurrent Mark-Sweep GC Thread    
+CompilerThread
+GC task thread#
+Gang worker#
+Timer-

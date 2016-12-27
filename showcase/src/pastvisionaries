@@ -1,0 +1,63 @@
+TOP TEN!
+
+1. Silvio - according to Greg he was the best. Got stuck in the field. Modest. Un-assumimg.
+   Only person who understood what WS-A was good for! Huge visions for cloud, end-point bus 
+   connection was his idea. He would be aligned with separation of concerns, typed services,
+   and itinerary focus. Did have some weird idea that AI should not be the mediator of SOAP WSDL first
+   into ESB requirements(Scottish Widows) - AI was in there but ESB was suppose to dance to the WSDL
+    - never got that one - I must be missing something.
+
+2. Thomas Steinborn - what can you say? Genius - he authored SDM, SDP and so much more, he rewrote 
+ESB's JMS connectivity, etc, etc. As PM, he had the luxury of being his own boss in that
+he coded his visions. Not right all the time though - his cache solution seems non transparent
+to me, his metering ideas for cloud multi-tenancy should have included Actional, for example.
+
+3. Mahesh Nair - brilliant engineer, great guy. Did huge part in typed integration service campaign
+by "injection/we'll call you" vs "you call us" for interface parameters - this put script engine
+away for good! Re-wrote process engine, including passivate/activate, fault-handlers,
+EL in mapping, and dynamic itinerary. Now may be time to harvest ALL of these features.
+Sometimes, got over-exited, but really great guy!
+
+4. Greg Lucas - awesome manager! highly supportive less controlling that Ron. Fun guy.
+    Hands on - loved code. Would fully understand(and probably does already) the impact of
+    separation of concerns and typed integration services and repository.
+     
+5. Andrew Bramley - great guy,fantastic manager and engineer, I didn't get to talk PM a lot with him
+ 
+6. Dion Picco - great guy, picked up fast, coined RBI, liked my testing thoughts, seemed 
+well liked by customers
+     
+7. Andi Abes - perhaps brilliant we'll never know - pain in ass, tendency to get into rat-holes
+
+   - ideas: "TIDE and QA's inability to diagnose any test failures is a product-level problem
+     in the area of problem reporting, visibility, and poor diagnostics". 
+     Agreed, but I would add that our test approach is also broken.
+     I think "Aurea Monitoring Service" would do well to listen to above perspective from
+     Andi.
+
+8. Bill Wood - awesome covered the gambit - could do it and vision it. He was at heart
+   and engineer's man.
+
+9. Gordon Van Huisen - little bit too early days for me, so I have no knowledge of his vision
+
+10. Jaimie Merrit - very smart, awesome fun, party guy. Could have socialized(non-drinking!) ideas
+   with engineering more(a little clique)
+ 
+11. Ron Rudis - great manager, great person, well-loved and respected, but played SILOs game
+   too much to control product delivery, allowed in-effective QA to go on unchecked.
+   
+12. Giovanni Boschi - great guy, disorganized as engineer
+
+13. Bill Cullen - hard to say, seemed to have a personality that often clashed.
+
+14. David Grigglestone - brilliant architect and engineer. Not necessarily a visionary.
+
+15. Vasco K. - pompous, long-winded git
+ 
+16. Kim Palko - her assignment as PM was a Progress upper management mistake - languished
+   for 3 years, nice person in wrong place
+
+
+
+
+   

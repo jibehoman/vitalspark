@@ -1,0 +1,292 @@
+/* Copyright (c) 2002-2015, Aurea Software */
+
+
+
+
+
+.sequence-messagepanel
+{
+	background-color:#fff1b6;
+	background-image: url(../images/gantt/warningpanelback.gif);
+	background-repeat: repeat-y;
+	color: #5b5316;
+	font-weight: bold;
+	font-size: 11px;	
+	font-family: tahoma,arial,verdana,sans-serif;
+	padding-left: 25px;
+	padding-top: 6px;
+	padding-bottom: 5px;
+	padding-right: 15px;
+	border:none;
+}
+
+.sequence-messagepanel-icon
+{
+	position:absolute;
+	top:5px;
+	left:5px;
+	height:20px;
+	width:20px;
+	overflow:hidden;
+	background-image: url(../images/default/shared/warning.gif);
+	background-repeat: no-repeat;
+}
+
+.gantt-fault-icon
+{
+	height:15px;
+	width:6px;
+	overflow:hidden;
+	background-image: url(../images/failureIcon.png);
+	background-repeat: no-repeat;
+}
+
+.gantt-securityfault-icon
+{
+	height:15px;
+	width:6px;
+	overflow:hidden;
+	background-image: url(../images/securityFaultIcon.png);
+	background-repeat: no-repeat;
+}
+
+
+.gantt-cellcanvas div,
+.gantt-cellcanvas img,
+.contentbox
+{
+	box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	-ms-box-sizing: content-box;
+}
+
+ 
+div.gantt-cellcanvas
+{
+	overflow:hidden;
+	position:relative;
+	top:0px;
+	left:0px;
+	width:100%;
+	padding-top:0px;
+	padding-bottom:0px;
+}
+
+
+
+div.gantt-activationbar
+{
+	position: absolute; 
+	overflow: hidden; 
+	height: 13px;
+}
+
+div.gantt-activationbar-leftborder-desaturated, 
+div.gantt-activationbar-leftborder
+{
+	position: absolute; 
+	top: 0px; 
+	left: 0px; 
+	overflow: hidden; 
+	width: 1px; 
+	height: 13px;
+}
+
+div.gantt-activationbar-rightborder-desaturated,
+div.gantt-activationbar-rightborder
+{
+	position: absolute; 
+	top: 0px; 
+	right: 0px; 
+	overflow: hidden; 
+	width: 1px; 
+	height: 13px;
+}
+
+
+
+img.gantt-activationbar-red,
+img.gantt-activationbar-green, 
+img.gantt-activationbar-yellow,
+img.gantt-activationbar-desaturated, 
+img.gantt-activationbar-securityfault, 
+img.gantt-activationbar-fault 
+{
+	overflow: hidden;
+	position: absolute;	
+	height: 13px; 
+}
+
+img.gantt-activationbar-green
+{
+	background-color: #B3ECB7; 
+	border-bottom: 1px solid #404040; 
+	border-top: 1px solid #404040; 
+}
+
+img.gantt-activationbar-red
+{
+	background-color: #ff5959; 
+	border-bottom: 1px solid #404040; 
+	border-top: 1px solid #404040; 
+}
+
+img.gantt-activationbar-yellow
+{
+	background-color: #fbe794; 
+	border-bottom: 1px solid #404040; 
+	border-top: 1px solid #404040; 
+}
+
+img.gantt-activationbar-desaturated 
+{
+	background-color: #F6F6F6; 
+	border-bottom: 1px dashed #999999; 
+	border-top: 1px dashed #999999; 
+}
+
+img.gantt-activationbar-securityfault
+{
+	background-color: #f7c5f4; 
+	border-bottom: 1px solid #404040; 
+	border-top: 1px solid #404040; 
+}
+
+img.gantt-activationbar-fault
+{
+	background-color: #fbe794; 
+	border-bottom: 1px solid #404040; 
+	border-top: 1px solid #404040; 
+}
+
+div.gantt-activationbar-leftborder
+{
+	border-left: 1px solid #404040; 
+}
+
+div.gantt-activationbar-leftborder-desaturated
+{
+	border-left: 1px dashed #999999; 
+}
+
+div.gantt-activationbar-rightborder
+{
+	border-right: 1px solid #404040; 
+}
+
+div.gantt-activationbar-rightborder-desaturated
+{
+	border-right: 1px dashed #999999; 
+}
+
+div.gantt-activationbar-label
+{
+	position: absolute;
+	line-height: 19px;
+	vertical-align: middle;
+	top: 0px;
+}
+
+
+
+div.gantt-arrow-body-reply-red,
+div.gantt-arrow-body-request-red,
+div.gantt-arrow-body-reply-yellow,
+div.gantt-arrow-body-request-yellow,
+div.gantt-arrow-body-reply-green,
+div.gantt-arrow-body-request-green,
+div.gantt-arrow-body-reply-desaturated,
+div.gantt-arrow-body-request-desaturated,
+div.gantt-arrow-body-reply-blue,
+div.gantt-arrow-body-request-blue
+{
+	background-image: url("../images/gantt/verticalarrows.png");
+	background-repeat: repeat;
+	opacity: 0.8;
+	position: absolute;
+	overflow: hidden;	
+}
+
+div.gantt-arrow-body-reply-green	{ background-position:  -28px 0px; }
+div.gantt-arrow-body-request-green	{ background-position:  -42px 0px; }
+div.gantt-arrow-body-reply-red		{ background-position:  -84px 0px; }
+div.gantt-arrow-body-request-red	{ background-position:  -98px 0px; }
+div.gantt-arrow-body-reply-yellow	{ background-position: -140px 0px; }
+div.gantt-arrow-body-request-yellow	{ background-position: -154px 0px; }
+div.gantt-arrow-body-reply-desaturated	{ background-position: -196px 0px; }
+div.gantt-arrow-body-request-desaturated{ background-position: -210px 0px; }
+div.gantt-arrow-body-reply-blue		{ background-position: -252px 0px; }
+div.gantt-arrow-body-request-blue	{ background-position: -266px 0px; }
+
+
+
+
+div.gantt-arrow-head-down-wireframe-green,
+div.gantt-arrow-head-down-solid-green,
+div.gantt-arrow-head-up-wireframe-green,
+div.gantt-arrow-head-up-solid-green,
+div.gantt-arrow-head-down-wireframe-red,
+div.gantt-arrow-head-down-solid-red,
+div.gantt-arrow-head-up-wireframe-red,
+div.gantt-arrow-head-up-solid-red,
+div.gantt-arrow-head-down-wireframe-yellow,
+div.gantt-arrow-head-down-solid-yellow,
+div.gantt-arrow-head-up-wireframe-yellow,
+div.gantt-arrow-head-up-solid-yellow,
+div.gantt-arrow-head-down-wireframe-desaturated,
+div.gantt-arrow-head-down-solid-desaturated,
+div.gantt-arrow-head-up-wireframe-desaturated,
+div.gantt-arrow-head-up-solid-desaturated,
+div.gantt-arrow-head-down-wireframe-blue,
+div.gantt-arrow-head-down-solid-blue,
+div.gantt-arrow-head-up-wireframe-blue,
+div.gantt-arrow-head-up-solid-blue
+{
+	background-image: url("../images/gantt/verticalarrows.png");
+	background-repeat: no-repeat; 
+	opacity: 0.8; 
+	position: absolute; 
+	overflow: hidden;	
+	height: 10px; 
+}
+
+div.gantt-arrow-head-down-wireframe-green	{ background-position:    0px    0px; }
+div.gantt-arrow-head-up-wireframe-green		{ background-position:    0px  -11px; }
+div.gantt-arrow-head-down-solid-green		{ background-position:  -14px    0px; }
+div.gantt-arrow-head-up-solid-green		{ background-position:  -14px  -11px; }
+div.gantt-arrow-head-down-wireframe-red		{ background-position:  -56px    0px; }
+div.gantt-arrow-head-up-wireframe-red		{ background-position:  -56px  -11px; }
+div.gantt-arrow-head-down-solid-red		{ background-position:  -70px    0px; }
+div.gantt-arrow-head-up-solid-red		{ background-position:  -70px  -11px; }  
+div.gantt-arrow-head-down-wireframe-yellow	{ background-position: -112px    0px; }
+div.gantt-arrow-head-up-wireframe-yellow	{ background-position: -112px  -11px; }
+div.gantt-arrow-head-down-solid-yellow		{ background-position: -126px    0px; }
+div.gantt-arrow-head-up-solid-yellow		{ background-position: -126px  -11px; }
+div.gantt-arrow-head-down-wireframe-desaturated	{ background-position: -168px    0px; }
+div.gantt-arrow-head-up-wireframe-desaturated	{ background-position: -168px  -11px; }
+div.gantt-arrow-head-down-solid-desaturated	{ background-position: -182px    0px; }
+div.gantt-arrow-head-up-solid-desaturated	{ background-position: -182px  -11px; }
+div.gantt-arrow-head-down-wireframe-blue	{ background-position: -224px    0px; }
+div.gantt-arrow-head-up-wireframe-blue		{ background-position: -224px  -11px; }
+div.gantt-arrow-head-down-solid-blue		{ background-position: -238px    0px; }
+div.gantt-arrow-head-up-solid-blue		{ background-position: -238px  -11px; }
+
+div.gantt-arrow-highlight-fault,
+div.gantt-arrow-highlight-securityfault
+{
+	opacity: 0.75;
+	filter: alpha(opacity = 75);
+	overflow: hidden;
+	position: absolute;
+}
+
+div.gantt-arrow-highlight-fault
+{
+	background-color: #ffdf5f;
+}
+
+div.gantt-arrow-highlight-securityfault
+{
+	background-color: #f7c5f4;
+}

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/webflow 
+		http://www.springframework.org/schema/webflow/spring-webflow.xsd">
+
+     <var name="misc" class="org.springframework.webflow.samples.aurea.FlowStateHolder"/>
+     <on-start>
+ 		<evaluate expression="commissionService.createCommission()" result="flowScope.commission" />
+	</on-start>
+ 	<view-state id="applicationType" view="commissionFlow/applicationType" model="commission" >
+		<binder>
+			<binding property="applicationType" />
+		</binder>
+		<on-render>
+			<render fragments="body" />
+		</on-render>
+		<transition on="next" to="infrastructurePattern" bind="true"/> 
+		<transition on="cancel" to="cancel"/>
+	</view-state>
+ 	<view-state id="infrastructurePattern" view="commissionFlow/infrastructurePattern"  model="commission" >
+		<transition on="previous" to="applicationType"  bind="true"/>
+		<transition on="next" to="sonicSourceType"  bind="true"/> 
+		<transition on="cancel" to="cancel"/>
+	</view-state>
+ 	<view-state id="sonicSourceType" view="commissionFlow/sonicSourceType"  model="misc" >
+		<transition on="previous" to="infrastructurePattern"  bind="true"/>
+		<transition on="next" to="testSonicSourceType"  bind="true"/> 
+		<transition on="cancel" to="cancel"/>
+	</view-state>
+	<decision-state id="testSonicSourceType">
+		<if test="flowScope.misc.uploadApplication == 'xar'" then="xarUpload" else="testSonicSourceType1"/>
+	</decision-state>
+ 	<decision-state id="testSonicSourceType1">
+		<if test="flowScope.misc.uploadApplication == 'sdm'" then="sdmUpload" else="testSonicSourceType2"/>
+	</decision-state>
+ 	<decision-state id="testSonicSourceType2">
+		<if test="flowScope.misc.uploadApplication == 'domain'" then="developmentDomain" else="accessModel"/>
+	</decision-state>
+ 	<view-state id="xarUpload" view="commissionFlow/xarUpload"  model="misc" >
+		<binder>
+			<binding property="xar" />
+		</binder>
+		<transition on="upload" to="xarUpload">
+   	        <evaluate expression="fileUploadWithoutFaces.uploadFile(flowRequestContext)"/>
+ 		</transition>
+		<transition on="previous" to="sonicSourceType"/>
+		<transition on="next" to="accessModel"/> 
+		<transition on="cancel" to="cancel"/>
+	</view-state>	
+ 	<view-state id="sdmUpload" view="commissionFlow/sdmUpload"  model="misc" >
+		<binder>
+			<binding property="sdm" />
+		</binder>
+		<transition on="previous" to="sonicSourceType"/>
+		<transition on="next" to="accessModel"/> 
+		<transition on="cancel" to="cancel"/>
+	</view-state>	
+	<view-state id="developmentDomain" view="commissionFlow/developmentDomain"  model="commission">
+		<binder>
+			<binding property="domainName" />
+			<binding property="userName" />
+			<binding property="password" />
+			<binding property="url" />			
+		</binder>
+		<transition on="previous" to="sonicSourceType"/>
+		<transition on="next" to="accessModel"/> 
+		<transition on="cancel" to="cancel"/>
+	</view-state>	
+    <view-state id="accessModel" view="commissionFlow/accessModel" model="commission" >
+		<binder>
+			<binding property="mediationFeatures" />
+		</binder>
+ 		<transition on="previous" to="testSonicSourceType"/>
+		<transition on="next" to="monitoringModel"/>
+		<transition on="cancel" to="cancel"/>
+	</view-state>
+    <view-state id="monitoringModel" view="commissionFlow/monitoringModel" model="commission" >
+		<binder>
+			<binding property="monitoringFeatures" />
+		</binder>
+ 		<transition on="previous" to="accessModel"/>
+		<transition on="next" to="testModel"/>
+		<transition on="cancel" to="cancel"/>
+	</view-state>
+    <view-state id="testModel" view="commissionFlow/testModel" model="commission" >
+		<binder>
+			<binding property="testFeatures" />
+		</binder>
+ 		<transition on="previous" to="accessModel"/>
+		<transition on="finish" to="success"/>
+		<transition on="cancel" to="cancel"/>
+	</view-state>
+	<end-state id="success" view="commissionFlow/success"/>
+
+	<end-state id="cancel" view="commissionFlow/cancel"/>
+
+</flow>

@@ -1,0 +1,86 @@
+<TailoringMaps xmlns="http://www.sonicsw.com/sonicxq" version="TailorMap8.0">
+    <ProcessMaps/>
+    <ServiceMaps>
+        <ServiceMap entry_ref="ConnectFaultHandling.Entry" name="ConnectFaultHandling"
+                  typeRef="SonicConnect">
+         <paramMap>
+                <StringParam name="connectProjectArchiveURL"
+                         url="@svc.ConnectFaultHandling.connectProjectArchiveURL@"/>
+                <StringParam name="stagingDirectory">@svc.ConnectFaultHandling.stagingDirectory@</StringParam>
+                <StringParam name="connectProjectPropertiesURL"
+                         url="@svc.ConnectFaultHandling.connectProjectPropertiesURL@"/>
+            </paramMap>
+      </ServiceMap>
+        <ServiceMap entry_ref="prod.CBR.Entry" name="prod.CBR" typeRef="CBRType">
+         <paramMap>
+                <StringParam name="ruleEvaluatorClass">@svc.prod.CBR.ruleEvaluatorClass@</StringParam>
+                <StringParam name="xcbrRuleInfoPartId">@svc.prod.CBR.xcbrRuleInfoPartId@</StringParam>
+                <StringParam name="ruleFile" url="@svc.prod.CBR.ruleFile@"/>
+                <XmlParam name="ruleInfo"/>
+            </paramMap>
+      </ServiceMap>
+        <ServiceMap entry_ref="prod.Prototype.Entry" name="prod.Prototype"
+                  typeRef="PrototypeService"/>
+    </ServiceMaps>
+    <EndpointMaps/>
+    <ConnectionMaps>
+        <ConnectionMap name="StandardConnection" typeRef="JMSType">
+            <paramMap>
+                <StringParam name="url">@con.StandardConnection.url@</StringParam>
+                <StringParam name="user">@con.StandardConnection.user@</StringParam>
+                <StringParam name="password">@con.StandardConnection.password@</StringParam>
+                <StringParam name="SSL_CA_CERTIFICATES_DIR">@con.StandardConnection.SSL_CA_CERTIFICATES_DIR@</StringParam>
+                <StringParam name="SSL_CERTIFICATE_CHAIN">@con.StandardConnection.SSL_CERTIFICATE_CHAIN@</StringParam>
+                <StringParam name="SSL_PRIVATE_KEY">@con.StandardConnection.SSL_PRIVATE_KEY@</StringParam>
+                <StringParam name="SSL_PRIVATE_KEY_PASSWORD">@con.StandardConnection.SSL_PRIVATE_KEY_PASSWORD@</StringParam>
+                <StringParam name="SSL_CERTIFICATE_CHAIN_FORM">@con.StandardConnection.SSL_CERTIFICATE_CHAIN_FORM@</StringParam>
+                <StringParam name="SSL_CIPHER_SUITES">@con.StandardConnection.SSL_CIPHER_SUITES@</StringParam>
+                <StringParam name="SSL_PROVIDER_CLASS ">@con.StandardConnection.SSL_PROVIDER_CLASS@</StringParam>
+            </paramMap>
+        </ConnectionMap>
+    </ConnectionMaps>
+    <StringReplaceMaps xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <stringReplaceMap name="sonicfs:///workspace/" updatedName="sonicfs:///"/>
+    </StringReplaceMaps>
+    <PropertyReplaceMaps xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        artifactName="ConnectFaultHandling.properties">
+        <propertyReplaceMap propertyName="project.esbconfig.asyncExchange"
+                          updatedValue="@prop.ConnectFaultHandling.properties.project.esbconfig.asyncExchange@"/>
+        <propertyReplaceMap propertyName="esb_container_name_tag"
+                          updatedValue="@prop.ConnectFaultHandling.properties.esb_container_name_tag@"/>
+        <propertyReplaceMap propertyName="Resource.RESTProcess.sonic.preserveAttachmentInputStream"
+                          updatedValue="@prop.ConnectFaultHandling.properties.Resource.RESTProcess.sonic.preserveAttachmentInputStream@"/>
+        <propertyReplaceMap propertyName="mq_license_key"
+                          updatedValue="@prop.ConnectFaultHandling.properties.mq_license_key@"/>
+        <propertyReplaceMap propertyName="domain_name"
+                          updatedValue="@prop.ConnectFaultHandling.properties.domain_name@"/>
+        <propertyReplaceMap propertyName="Resource.RESTProcess.sonic.resourceUri"
+                          updatedValue="@prop.ConnectFaultHandling.properties.Resource.RESTProcess.sonic.resourceUri@"/>
+        <propertyReplaceMap propertyName="http.maxServerThreads"
+                          updatedValue="@prop.ConnectFaultHandling.properties.http.maxServerThreads@"/>
+        <propertyReplaceMap propertyName="messaging_routing_node_name"
+                          updatedValue="@prop.ConnectFaultHandling.properties.messaging_routing_node_name@"/>
+        <propertyReplaceMap propertyName="project.esbconfig.qualityOfService"
+                          updatedValue="@prop.ConnectFaultHandling.properties.project.esbconfig.qualityOfService@"/>
+        <propertyReplaceMap propertyName="administrator_user"
+                          updatedValue="@prop.ConnectFaultHandling.properties.administrator_user@"/>
+        <propertyReplaceMap propertyName="esb_license_key"
+                          updatedValue="@prop.ConnectFaultHandling.properties.esb_license_key@"/>
+        <propertyReplaceMap propertyName="administrator_password"
+                          updatedValue="@prop.ConnectFaultHandling.properties.administrator_password@"/>
+        <propertyReplaceMap propertyName="project.esbconfig.timeoutInterval"
+                          updatedValue="@prop.ConnectFaultHandling.properties.project.esbconfig.timeoutInterval@"/>
+        <propertyReplaceMap propertyName="Resource.RESTProcess.sonic.baseUrl"
+                          updatedValue="@prop.ConnectFaultHandling.properties.Resource.RESTProcess.sonic.baseUrl@"/>
+        <propertyReplaceMap propertyName="esb_container_classpath"
+                          updatedValue="@prop.ConnectFaultHandling.properties.esb_container_classpath@"/>
+        <propertyReplaceMap propertyName="http.maxConnections"
+                          updatedValue="@prop.ConnectFaultHandling.properties.http.maxConnections@"/>
+        <propertyReplaceMap propertyName="actional_enabled"
+                          updatedValue="@prop.ConnectFaultHandling.properties.actional_enabled@"/>
+        <propertyReplaceMap propertyName="enterprise_prefix"
+                          updatedValue="@prop.ConnectFaultHandling.properties.enterprise_prefix@"/>
+        <propertyReplaceMap propertyName="http.minServerThreads"
+                          updatedValue="@prop.ConnectFaultHandling.properties.http.minServerThreads@"/>
+    </PropertyReplaceMaps>
+</TailoringMaps>

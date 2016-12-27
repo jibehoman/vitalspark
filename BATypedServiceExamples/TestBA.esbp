@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xq:process xmlns:wsis="http://www.sonicsw.com/esb/service/invocation" xmlns:xq="http://www.sonicsw.com/sonicxq" name="TestBA" processModelVersion="3.0" qualityOfService="BEST_EFFORT" timeToLive="0">
+  <xq:exitEndpoint_list>
+    <xq:exitEndpoint endpoint_ref="REPLY_TO" type="REPLY_TO"/>
+  </xq:exitEndpoint_list>
+  <xq:faultEndpoint endpoint_ref="REPLY_TO" type="REPLY_TO"/>
+  <xq:rejectEndpoint endpoint_ref="dev.RME" type="ENDPOINT"/>
+  <xq:itinerary>
+    <xq:step name="Call propertyFileToXML" description="" type="SERVICE" endpoint_ref="BATypedService">
+      <xq:params>
+        <xq:stringParam name="operationId">Default.propertyFileToXML</xq:stringParam>
+      </xq:params>
+      <xq:messageMapping>
+        <xq:mapInput>
+          <xq:rule source="${esbmsg.parts['file'].content}" target="${esbdl.input['file']}"/>
+        </xq:mapInput>
+        <xq:mapOutput>
+          <xq:rule source="${esbdl.output['result'].value}" target="${esbmsg.parts[xq:newPart('result1', 'text/xml')]}"/>
+        </xq:mapOutput>
+      </xq:messageMapping>
+    </xq:step>
+    <xq:step name="Call regexpreplace" description="" type="SERVICE" endpoint_ref="BATypedService">
+      <xq:params>
+        <xq:stringParam name="operationId">Default.regexpreplace</xq:stringParam>
+      </xq:params>
+      <xq:messageMapping>
+        <xq:mapInput>
+          <xq:rule source="${esbmsg.parts['candidate'].content}" target="${esbdl.input['candidate']}"/>
+          <xq:rule source="${esbmsg.parts['re'].content}" target="${esbdl.input['regexp']}"/>
+        </xq:mapInput>
+        <xq:mapOutput>
+          <xq:rule source="${esbdl.output['result'].value}" target="${esbmsg.parts[xq:newPart('result2', 'text/xml')]}"/>
+        </xq:mapOutput>
+      </xq:messageMapping>
+    </xq:step>
+    <xq:step name="Call ldapQuery" description="" type="SERVICE" endpoint_ref="BATypedService">
+      <xq:params>
+        <xq:stringParam name="operationId">Default.ldapQuery</xq:stringParam>
+      </xq:params>
+      <xq:messageMapping>
+        <xq:mapInput>
+          <xq:rule source="${esbmsg.headers['h1']}" target="${esbdl.input['p1']}"/>
+          <xq:rule source="${esbmsg.headers['h2']}" target="${esbdl.input['p2']}"/>
+          <xq:rule source="${esbmsg.headers['h3']}" target="${esbdl.input['p3']}"/>
+        </xq:mapInput>
+        <xq:mapOutput>
+          <xq:rule source="${esbdl.output['stringCollection'].each}" target="${esbmsg.parts[xq:newPart(xq:strConcat('stringCollection', null, mapctx.sourceCursorIndex), 'text/xml')]}"/>
+          <xq:rule source="${esbdl.output['collection'].each}" target="${esbmsg.parts[xq:newPart(xq:strConcat('collection', null, mapctx.sourceCursorIndex), mapctx.sourceCursorElement['contentType'])]}"/>
+        </xq:mapOutput>
+      </xq:messageMapping>
+    </xq:step>
+    <xq:exit name="Exit 1"/>
+  </xq:itinerary>
+  <xq:trackingDetails trackingLevel="0">
+    <xq:eventEndpoint endpoint_ref="dev.Tracking" type="ENDPOINT"/>
+    <xq:idGenerator class="com.sonicsw.xqimpl.service.accessor.ScriptEvaluator"/>
+  </xq:trackingDetails>
+  <xq:interface>
+    <xq:operation xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xq:input name="Input">
+        <xq:parameter collection="false" name="file" type="xsd:anyType">
+          <xq:esbBinding>
+            <xq:part contentId="file"/>
+          </xq:esbBinding>
+        </xq:parameter>
+        <xq:parameter collection="false" name="candidate" type="xsd:anyType">
+          <xq:esbBinding>
+            <xq:part contentId="candidate"/>
+          </xq:esbBinding>
+        </xq:parameter>
+        <xq:parameter collection="false" name="re" type="xsd:anyType">
+          <xq:esbBinding>
+            <xq:part contentId="re"/>
+          </xq:esbBinding>
+        </xq:parameter>
+        <xq:parameter collection="false" name="h1" type="xsd:anyType">
+          <xq:esbBinding>
+            <xq:header name="h1"/>
+          </xq:esbBinding>
+        </xq:parameter>
+        <xq:parameter collection="false" name="h2" type="xsd:anyType">
+          <xq:esbBinding>
+            <xq:header name="h2"/>
+          </xq:esbBinding>
+        </xq:parameter>
+        <xq:parameter collection="false" name="h3" type="xsd:anyType">
+          <xq:esbBinding>
+            <xq:header name="h3"/>
+          </xq:esbBinding>
+        </xq:parameter>
+        <xq:parameter collection="false" name="c0" type="xsd:anyType">
+          <xq:esbBinding>
+            <xq:part contentId="c0"/>
+          </xq:esbBinding>
+        </xq:parameter>
+        <xq:parameter collection="false" name="c1" type="xsd:anyType">
+          <xq:esbBinding>
+            <xq:part contentId="c1"/>
+          </xq:esbBinding>
+        </xq:parameter>
+      </xq:input>
+      <xq:output name="Output">
+        <xq:parameter collection="false" name="DefaultOutput" type="xsd:anyType">
+          <xq:esbBinding>
+            <xq:part contentId="name"/>
+          </xq:esbBinding>
+        </xq:parameter>
+      </xq:output>
+    </xq:operation>
+  </xq:interface>
+</xq:process>

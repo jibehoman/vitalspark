@@ -1,0 +1,5 @@
+RetryInterval=180000
+ConnectTimeout=30
+PingInterval=30
+PingTimeout=0
+FailureTimeout=30

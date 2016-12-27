@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude" xsi:noNamespaceSchemaLocation="file:///C:/Sonic2013/SDM8.6/schemas/Model.xsd">
+  <GeneralConfig>
+    <ModelName>Activator140610:08:49:30_Model</ModelName>
+    <Version>V1.0.0</Version>
+    <Description>ActivatorGenerated</Description>
+  </GeneralConfig>
+  <DSReference>
+    <DomainName>@DomainName@</DomainName>
+    <BasePort>@PrimaryManagementPort@</BasePort>
+    <DSHostName>@dshost.Id@</DSHostName>
+    <User>@AdministratorUser@</User>
+    <Password>@AdministratorPassword@</Password>
+  </DSReference>
+  <ESBBase>
+    <License>@ESBLicenseKey@</License>
+  </ESBBase>
+  <ESBArchive>
+    <Id>esb.xar</Id>
+  </ESBArchive>
+  <ESBContainer>
+    <LogicalHosts>
+      <LogicalHost>esb1host</LogicalHost>
+    </LogicalHosts>
+    <Id>UniversalRESTOnRamp</Id>
+    <AutoStart>true</AutoStart>
+    <BootContainer>true</BootContainer>
+    <Services>
+      <Service>
+         <Id>ConnectFaultHandling</Id>
+         <ListenerCount>1</ListenerCount>
+      </Service>
+      <Service>
+         <Id>prod.Prototype</Id>
+         <ListenerCount>1</ListenerCount>
+      </Service>
+      <Service>
+         <Id>prod.CBR</Id>
+         <ListenerCount>1</ListenerCount>
+      </Service>
+    </Services>
+  </ESBContainer>
+</Model>
+	   

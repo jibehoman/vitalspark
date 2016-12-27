@@ -1,0 +1,116 @@
+/* Copyright (c) 2002-2015, Aurea Software */
+
+
+
+.bottom_padding_5px
+{
+	padding-bottom: 5px;
+}
+.bottom_padding_20px
+{
+	padding-bottom: 20px;
+}
+.manage_scheme_btn
+{
+	margin: 10px 0 20px 145px;
+}
+.grid_move_up_btn
+{
+	background-image: url(../images/grid_arrow_up.gif) !important;
+}
+.grid_move_down_btn
+{
+	background-image: url(../images/grid_arrow_down.gif) !important;
+}
+.statsection_move_up_menu
+{
+	background-image: url(../images/grid_arrow_up.gif) !important;
+	background-position: center left;
+	background-repeat: no-repeat;
+}
+.statsection_move_down_menu
+{
+	background-image: url(../images/grid_arrow_down.gif) !important;
+	background-position: center left;
+	background-repeat: no-repeat;
+}
+.path_explorer_btn, .network_map_btn
+{
+	width: 20px !important;
+}
+.network_map_btn
+{
+	background-image: url(../images/mode_network_map_light.gif) !important;
+}
+.item_tree_btn
+{
+	background-image: url(../images/mode_item_tree.gif) !important;
+}
+.path_explorer_btn
+{
+	background-image: url(../images/mode_path_explorer_light.gif) !important;
+}
+.action_toolbar
+{
+	position: absolute;
+	z-index: 100;
+}
+
+.menu-title{
+    background: #ebeadb url(../images/xtheme_mist/grid/grid3-hrow.gif) repeat-x;
+    border-bottom:1px solid #99bbe8;
+    color:#15428b;
+    font:bold 10px tahoma,arial,verdana,sans-serif;
+    display:block;
+    padding:3px;
+}
+
+
+.x-form-margin-item
+{
+	margin-top:3px;
+	margin-bottom:2px;
+}
+
+.x-btn-text-smallicon .x-btn-center .x-btn-text
+{
+	background-position: 6px 6px;
+	background-repeat: no-repeat;
+	padding-left:18px;
+	padding-top:3px;
+	padding-bottom:2px;
+	padding-right:0;
+}
+
+.action-pause
+{
+	background-image:url(../images/net_menu_time_past.gif) !important;
+}
+
+.action-play
+{
+	background-image:url(../images/net_menu_time_cur.gif) !important;
+}
+
+
+
+
+
+
+
+.act-nsd-dormantpanel
+{
+	display:none;
+	
+}
+
+
+
+
+
+
+.x-grid-dirty-cell, .x-grid3-dirty-cell
+{
+     background-image:none;
+}
+

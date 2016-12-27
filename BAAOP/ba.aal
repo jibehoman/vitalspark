@@ -1,0 +1,20 @@
+alias String                     for class java.lang.String
+alias Thread                     for class java.lang.Thread
+instanceof com.sonicsw.xqimpl.util.log.XQLogImpl
+{
+    wrap emitMessage(String, int)
+    {
+        $wrapped(Thread.currentThread().getName() + " " + $1, $2);
+     }
+}
+instanceof progress.message.jimpl.Session
+{
+    wrap incrementReceivedMessageCount()
+    {
+        $wrapped($$);
+	String id = m_zconnection.toString();
+	if (!id.startsWith("SonicMQ")) {
+	  System.out.println("Enqueued new message. Count at: " + m_rxMsgCnt + " for " + id); 
+	}
+    }
+}

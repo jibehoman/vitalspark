@@ -1,0 +1,19 @@
+alias String                     for class java.lang.String
+alias LogEvent                   for class progress.message.broker.LogEvent
+alias GuarMsgEvt                 for class progress.message.broker.GuarMsgEvt
+
+instanceof progress.message.broker.EventListener
+{
+	after onLogEventRead(LogEvent, long, long)
+	{
+		aop.LogDiagnosticsInterceptor.afterOnLogEventRead($$);
+	}
+}
+
+instanceof progress.message.broker.LogFile
+{
+	after main(String[])
+	{
+		aop.LogDiagnosticsInterceptor.afterMain($$);
+	}
+}

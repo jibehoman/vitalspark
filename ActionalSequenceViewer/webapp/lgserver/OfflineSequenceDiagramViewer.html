@@ -1,0 +1,208 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.ohtml4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <link rel="stylesheet" type="text/css" href="css/ext-all-notheme.css" />
+	<link rel='stylesheet' type="text/css" href='css/xtheme-mist.css'>
+    <link rel="stylesheet" type="text/css" href="css/sequenceDiagram.css" />
+    <link rel="stylesheet" type="text/css" href="css/sequenceTable.css" />
+    
+    <script type='text/javascript' src='js/ext/ext-base-debug.js'></script>
+	<!--<script type="text/javascript" src="js/ext/ext-base.js"></script>-->
+ 	<script type="text/javascript" src="js/ext/ext-all.js"></script>
+ 	
+	<script type='text/javascript' src='js/utils.js'></script>
+	<script type='text/javascript' src='js/usersettings.js'></script>
+	<script type='text/javascript' src='js/OpenAjax.js'></script>
+	<script type='text/javascript' src='js/pagefillerviewport.js'></script>
+	
+<!-- Replace JSP implementation with JSON/JS OfflineMessages.js
+    <script type="text/javascript" src="portal/pct/technicalviewmessages.js"></script>
+-->    
+    <script type="text/javascript" src="OfflineMessages.js"></script>
+    <script type="text/javascript" src="sequenceApp.js"></script>
+    <script type="text/javascript" src="sequenceTableApp.js"></script>
+
+    <script type='text/javascript' src='js/datastore.js'></script>
+    <script type='text/javascript' src='js/statlistdataset.js'></script>
+	<script type='text/javascript' src='js/statformatter.js'></script>
+	
+    <script type="text/javascript" src="js/sequenceCommon/callStack.js"></script>
+    <script type="text/javascript" src="js/sequenceCommon/sequenceDataSchema.js"></script>
+    <script type="text/javascript" src="js/sequenceCommon/sequenceCommonUtil.js"></script>
+    <script type="text/javascript" src="js/sequenceDiagram/sequenceDiagram.js"></script>
+    <script type="text/javascript" src="js/sequenceDiagram/sequenceUtil.js"></script>
+    <script type="text/javascript" src="js/sequenceDiagram/canvasUtil.js"></script>
+    <script type="text/javascript" src="js/sequenceDiagram/sequenceDiagramLogic.js"></script>
+    <script type="text/javascript" src="js/sequenceDiagram/diagramColors.js"></script>
+	<script type='text/javascript' src="js/sequenceTable/sequenceTableDataSchema.js"></script>
+	<script type='text/javascript' src="js/sequenceTable/sequenceTableStoreHelper.js"></script>
+	<script type='text/javascript' src="js/sequenceTable/sequenceTable.js"></script>
+
+    <script type="text/javascript">
+        var sequenceDiagramApp;
+        Ext.onReady ( function()
+        {
+            Ext.BLANK_IMAGE_URL = "images/default/s.gif";
+
+	        var imagesPath = contextUrl("images/");
+            var i18nText = { example: "Some I18N text" };
+            var appSurrounding = [ Ext.get ( "headerId" ), Ext.get ( "footerId" ) ];
+            var appElement = Ext.get ( "contentId" );
+
+            var config =
+                { appElement: appElement,
+                  appSurrounding: appSurrounding,
+                  i18nText: i18nText,
+		          imagesPath: imagesPath
+            };
+
+            sequenceDiagramApp = new com.actional.sequence.App ( config );
+            sequenceTableApp = new com.actional.sequence.TableApp ( config );
+            
+            loadFile("transactions.json", jsonSelectionsLoaded);
+ 
+        });
+
+        function jsonLoaded(response) {
+			var el = document.getElementById("jsonTextAreaId");
+		    el.value = response;            
+        	useInputJsonData();
+        }
+        
+
+        function jsonSelectionsLoaded(response) {
+			var json = JSON.parse ( response );
+			var uniqueArray = json["list"];
+			var jsonSet = document.myform.jsonSelect;
+	        for (i=0; i<uniqueArray.length; i++){
+		      var code = uniqueArray[i];
+			  var ansText = code;
+			  var valText = code;
+			  var opt = new Option(ansText,valText);
+			  jsonSet.options[jsonSet.options.length]=opt;
+	       }
+	       if (uniqueArray.length > 0) {
+	          jsonSelectChanged();
+	       }
+        }
+        
+      	function jsonSelectChanged()
+		{
+			var el = document.myform.jsonSelect;
+            loadFile(el.value, jsonLoaded);
+
+		}
+
+      	function modeSelectChanged()
+		{
+		    useInputJsonData()
+		}
+		
+		function useInputJsonData()
+		{
+			var el = document.getElementById("jsonTextAreaId");
+			var testData = JSON.parse ( el.value );
+			var el = document.myform.modeSelect;
+			if (el.value == "Diagram") {
+				sequenceTableApp.hide ( );
+				sequenceDiagramApp.resetData ( testData );
+	        } else {
+				sequenceDiagramApp.hide (  );
+				sequenceTableApp.resetData ( testData );
+			}
+		}
+
+	    function contextUrl(str)
+	    { 
+	         return str;
+	    }
+	    
+    	function getURLParamNoDef(name) {
+	        // get query string part of url into its own variable
+	        var url = window.location.href;
+	        var query_string = url.split("?");
+	        
+	        if (query_string.length < 2)
+	          return null;
+	        // make array of all name/value pairs in query string
+	        var params = query_string[1].split("&");
+	        
+	        // loop through the parameters
+	        var i = 0;
+	        while (i < params.length) {
+	            // compare param name against arg passed in
+	            var param_item = params[i].split("=");
+	            if (param_item[0] == name) {
+	                // if they match, return the value
+	                return param_item[1];
+	            }
+	            i++;
+	        }
+	        return null;
+		}
+		
+		function getURLParam(name, def) {
+		 	var res = getURLParamNoDef(name);
+		 	if (res == null)
+		        return def;
+		    else
+		        return res;     
+		}
+		
+		<!-- Note chrome must be run with "chrome --allow-file-access-from-files" to allow load from local files -->
+		 function loadFile(file, callback) {   
+		    var xobj = new XMLHttpRequest();
+		    xobj.overrideMimeType("application/json");
+		    xobj.open('GET', file, true);
+		    xobj.onreadystatechange = function () {
+		          if (xobj.readyState == 4 && (xobj.status == "200" || xobj.status == "0")) {
+			            // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+			            callback(xobj.responseText);
+		          }
+		    };
+		    xobj.send(null);  
+ 		}
+    </script>
+</head>
+<body>
+<form action="" name="myform" >
+<table width="100%">
+	<tr>
+		<td width="40%">
+Select Transaction - <select name="jsonSelect" onChange="jsonSelectChanged(this.value)"  size="1">
+	      </select>
+		</td>
+		<td width="20%">
+Select Display Mode - <select name="modeSelect" onChange="modeSelectChanged(this.value)"  size="1">
+<option selected="selected" label="Sequence Diagram" value="Diagram"/>
+<option label="Sequence Table" value="Table"/>
+	      </select>
+		</td>
+		<td width="20%">
+Transaction Sequence JSON - <a href="javascript:useInputJsonData();">Redisplay this data</a>
+		</td>
+		</td width="20%">
+<a href="help.html" onclick="javascript:void window.open('./help.html','1409582808762','width=700,height=500,toolbar=0,menubar=0,location=0,status=1,scrollbars=1,resizable=1,left=0,top=0');return false;">Definitions/Help</a>
+		</td>
+	</tr>
+</table>
+<hr color="blue" size="2"/>
+<table width="100%">
+	<tr>
+	    <td width="100%">
+		  <textarea id="jsonTextAreaId" rows="20" style="width: 100%; height: 100%; border: none">
+{"majorVersion":1,"minorVersion":1}
+		  </textarea>
+	    </td>
+	</tr>
+</table>
+</form>
+<div id="contentId" height="50%">
+</div>
+<div id="footerId">
+</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+PegaSystems(Setrag Khoshafian - smart articulate insightful)
+
+But:
+
+Bottom-line - I do not believe they have an ESB.
+
+Tend to "put-down" competition on WebSites  - makes you wonder whether they are out of ideas -
+maybe this is just typical for enterprise solution vendors. I do not want Aurea to do this.
+
+See neither repository, nor dynamic itinerary mentioned anywhere.
+
+Mobile collateral is just about WebApps i.e. screen-size(no bigger vision).
+
+
+"These big bang SOA projects typically deploy an Enterprise Service Bus (ESB) and attempt for instance to
+expose as services large numbers of legacy interfaces....In other words a bottom-up approach focused
+almost entirely on modern SOA plumbing. SOA architecture patterns have their place and are often essential.
+But overhauling large collections of applications with a SOA stack from the bottom up, 
+layer-by-layer, with no top down justification or rationale is the wrong approach"
+
+Good ! He's not into SOA!
+ 
+"Equating Modernization to Modern Languages, IDEs, Components, and Platforms: 
+The business logic is still embedded in the code and its cryptic for the business. 
+There are little or no business transparencies. 
+When is the last time you saw a business stakeholder go  through Java code or use Eclipse"
+ 
+Entirely agree.  This resonates. For the longest time we thought lowering the bar for
+service developers was the thing to go after. For Java it was: POJO support without Sonic ESB
+knowledge in the service code. Per Silvio, Thomas, Hub and me(now) it is the itinerary developer 
+and higher up that we focus on. Setrag does not see repository and the potential we have to
+separate concerns(itinerary vs service). He's gonna be broad-sided by that.

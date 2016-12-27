@@ -1,0 +1,89 @@
+/* Copyright (c) 2002-2015, Aurea Software */
+
+
+
+
+.treewidget IMG
+{
+	vertical-align:middle;
+}
+
+#inner
+{
+ 	margin-right:3px;
+	padding-top:1px;
+	padding-bottom:1px;
+	cursor: pointer;
+	cursor: hand;
+}
+
+.treeplusminus, .treeasterix, .treeicon, .treecheckbox, .treewidget SPAN, .childrenDiv
+{
+	cursor: pointer;
+	cursor: hand;
+}
+
+.treeplusminus, .treeasterix
+{
+	margin-right:2px;
+}
+
+.treeplusminus, .treeicon
+{
+	height:16px;
+	width:16px;
+}
+
+.treeicon, .treecheckbox
+{
+	margin-right:3px;
+}
+
+.treecheckbox
+{
+	height:13px;
+	width:13px;
+}
+
+.treeasterix
+{
+	height:12px;
+	width:12px;
+}
+
+.treewidget SPAN
+{
+	padding-left:1px;
+	padding-right:1px;
+	padding-bottom:1px;
+}
+
+.childrenDiv
+{
+	display:;
+	margin-left: 16px;
+}
+
+.act-tree-widget-selected-node-text
+{
+	background-color: #D0CDD0;
+	color: blue;
+	text-decoration: none;
+	font-weight: normal;
+}
+
+.act-tree-widget-plus-image
+{
+	width: 16px;
+	height: 16px;
+	background-image: url(../images/plus.gif);
+	vertical-align: middle;
+}
+
+.act-tree-widget-minus-image
+{
+	width: 16px;
+	height: 16px;
+	background-image: url(../images/minus.gif);
+	vertical-align: middle;
+}

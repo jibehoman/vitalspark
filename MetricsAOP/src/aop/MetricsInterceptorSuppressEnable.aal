@@ -1,0 +1,16 @@
+alias IHistoricalMetric for class com.sonicsw.mf.common.metrics.IHistoricalMetric
+alias IMetricIdentity for class com.sonicsw.mf.common.metrics.IMetricIdentity
+alias IMetricInfo for class com.sonicsw.mf.common.metrics.IMetricInfo
+alias IMetricsData for class com.sonicsw.mf.common.metrics.IMetricsData
+alias IMetric for class com.sonicsw.mf.common.metrics.IMetric
+alias INotification for class com.sonicsw.mf.common.runtime.INotification
+alias String for class java.lang.String
+alias HashSet for class java.util.HashSet
+
+instanceof com.sonicsw.mf.framework.monitor.CollectionMonitor
+{
+    wrap  storeMetrics(String, IMetricsData) {
+   		$wrapped($$);
+        return new java.util.HashSet();
+    }
+}

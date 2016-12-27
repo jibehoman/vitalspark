@@ -1,0 +1,69 @@
+alias IHistoricalMetric for class com.sonicsw.mf.common.metrics.IHistoricalMetric
+alias IMetricIdentity for class com.sonicsw.mf.common.metrics.IMetricIdentity
+alias IMetricInfo for class com.sonicsw.mf.common.metrics.IMetricInfo
+alias IMetricsData for class com.sonicsw.mf.common.metrics.IMetricsData
+alias IMetric for class com.sonicsw.mf.common.metrics.IMetric
+alias INotification for class com.sonicsw.mf.common.runtime.INotification
+alias String for class java.lang.String
+alias HashSet for class java.util.HashSet
+
+instanceof com.sonicsw.mf.framework.logger.LogFormatter
+{
+    before formatHistoricalMetric(IHistoricalMetric)
+    {
+    	aop.MetricsInterceptor.beforeformatHistoricalMetric($$);
+    }
+}
+
+instanceof com.sonicsw.mf.framework.monitor.storage.IHistoryStorage
+{
+    before open()
+    {
+    	aop.StorageInterceptor.beforeopen();
+    }
+    before close()
+    {
+    	aop.StorageInterceptor.beforeclose();
+    }
+    before storeNotification(INotification)
+    {
+    	aop.StorageInterceptor.beforestoreNotification($$);
+    }
+    wrap storeMetrics(IMetric[], String)
+    {
+    	if (stats.Stats.streamAnalyticsStorageDirectly() || stats.Stats.bypassMonitorDatabaseStorage()) {
+    		return aop.StorageInterceptor.wrapstoreMetrics($$);
+        } else {
+    		return $wrapped($$);
+    	}
+    }
+}
+instanceof com.sonicsw.mf.framework.monitor.CollectionsMonitor
+{
+    before enableMetrics(IMetricIdentity[])
+    {
+    	aop.MetricsInterceptor.beforeenableMetrics($0.m_metricsRegistrar,$1);
+    }
+    before disableMetrics(IMetricIdentity[])
+    {
+    	aop.MetricsInterceptor.beforedisableMetrics($0.m_metricsRegistrar,$$);
+    }
+    wrap getMetricsInfo()
+    {
+    	return aop.MetricsInterceptor.wrapgetMetricsInfo();
+    }
+}
+
+# Uncomment this to suppress CollectionMonitor calls to enableMetrics which may be inefficient
+#instanceof com.sonicsw.mf.framework.monitor.CollectionMonitor
+#{
+#    wrap  storeMetrics(String, IMetricsData) {
+#     	if (stats.Stats.streamAnalyticsStorageDirectly() || stats.Stats.bypassMonitorDatabaseStorage()) {
+#    		aop.StorageInterceptor.wrapstoreMetrics($2.getMetrics(), $1);
+#      		return new java.util.HashSet();
+#        } else {
+#    		return $wrapped($$);
+#    	} 
+#    }
+}
+

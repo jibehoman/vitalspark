@@ -1,0 +1,155 @@
+/* Copyright (c) 2002-2015, Aurea Software */
+
+
+
+
+
+.dddstyle
+{
+	background-color: #ccccd3;
+
+	border-bottom-width:2px;
+	border-top-width:2px;
+	border-left-width:2px;
+	border-right-width:2px;
+
+	border-style:outset;
+
+	border-color:#f7f7ff;		
+
+	-moz-border-left-colors:	#b8b8be #f7f7ff;
+	-moz-border-top-colors:		#b8b8be #f7f7ff;
+	-moz-border-right-colors:	#7b7b7f #3d3d3f;
+	-moz-border-bottom-colors:	#7b7b7f #3d3d3f;
+
+	position:absolute;
+	padding:1px 1px 1px 1px;
+	text-decoration:none;
+	font-family:verdana,sans-serif;
+	font-size:11px;
+	font-weight:normal;
+	z-index:30;
+}
+
+.dddstyle TD
+{
+	padding:0px;
+	border: 0px;
+}
+
+.dddstyle-inside
+{
+	background-color:#F0F0F8;
+	border-bottom-width:1px;
+	border-top-width:1px;
+	border-left-width:1px;
+	border-right-width:1px;
+
+	border-color:#f7f7ff;		
+
+	border-style:inset;
+
+	-moz-border-left-colors:	#3d3d3f;
+	-moz-border-top-colors:		#3d3d3f;
+	-moz-border-right-colors:	#f7f7ff;
+	-moz-border-bottom-colors:	#f7f7ff;
+}
+
+.dddstyle-selected
+{
+	background-color:#FFDB7D;
+}
+
+.dddcheck { vertical-align: middle; }
+
+.dddheader
+{
+	padding:1px 2px 2px 2px;
+	background:#C1C1D5;
+
+}
+
+.dddbutton
+{
+	width:50px;
+	height:20px;
+	font-size:xx-small;
+	padding-right:3px;
+	padding-left:3px;
+	text-align:center;
+}
+
+.dialog_button_normal
+{
+	border:		1px solid #111111;
+	background:	#ffffff;
+}
+
+.dialog_button_hover
+{
+	border:		1px solid #111111;
+        background:	url(../images/shade_c2over.gif);
+	cursor: pointer;
+	cursor: hand;
+}
+
+.dialog_button_push
+{
+	border:		1px solid #111111;
+        background:	url(../images/shade_c2push.gif);
+}
+
+.formvalue .button_normal
+{
+	border:		1px solid #111111;
+	background:	#DDDDDD;
+	cursor: pointer;
+	cursor: hand;
+
+}
+
+.formvalue .button_push
+{
+        background:	url(../images/shade_c2push.gif);
+	cursor: pointer;
+	cursor: hand;
+}
+
+.formvalue .button_hover
+{
+	border:		1px solid #111111;
+        background:	url(../images/shade_c2over.gif);
+	cursor: pointer;
+	cursor: hand;
+}
+
+.formvalue .button_push
+{
+	border:		1px solid #111111;
+        background:	url(../images/shade_c2push.gif);
+	cursor: pointer;
+	cursor: hand;
+}
+
+.formvalue_simple .button_normal
+{
+	cursor: pointer;
+	cursor: hand;
+}
+
+.formvalue_simple .button_hover
+{
+	cursor: pointer;
+	cursor: hand;
+}
+
+.formvalue_simple .button_push
+{
+	cursor: pointer;
+	cursor: hand;
+}
+
+td.tight
+{
+	padding: 0 0 0 0;
+}
