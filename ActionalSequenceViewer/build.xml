@@ -23,6 +23,7 @@
   <target name="build">
   	<unzip src="${build.war}" dest="${build.webappdir}">
   	 <patternset>
+  	    <include name="resources/au/js/"/>
   	    <include name="js/"/>
   	    <include name="css/"/>
   	    <include name="images/"/>
